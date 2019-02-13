@@ -2,8 +2,14 @@ global-styling:
   version: 1.x
   css:
     theme:
-      css/govcms-ui.css: {}
+        css/global.css: {}
+        css/medium.css: { media: screen and (min-width: 45em) }
+        css/wide.css: { media: screen and (min-width: 70em) }
+        css/print.css: { media: print }
   js:
     js/scripts.js: {}
+    js/global.js: {}
   dependencies:
-      - core/drupalSettings
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

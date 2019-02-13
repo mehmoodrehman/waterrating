@@ -1,0 +1,121 @@
+﻿/**
+ *
+ * Australian Government - Water Rating
+ * Print CSS
+ *
+ */
+ 
+ 
+body,
+body.ribbon-visible {
+	background: transparent;
+	overflow: visible;
+}
+div#s4-bodyContainer {
+	background: transparent;
+}
+.skiplinks,
+.top-links-search-wrapper,
+.nav-wrapper,
+.global-search-form,
+.footer,
+.secondary-nav,
+.secondary-nav-wrapper,
+.lineage-wrapper,
+.view-link ,
+.expand-all,
+.print-page,
+#ms-designer-ribbon,
+.right-col,
+.scroll,
+iframe#feedbackWidget,
+.product-search,
+.wels-login,
+.tfc__water-rating-label-image,
+.tfc__home-slider {
+	display: none !important;
+}
+
+.main {
+	color: #000000  !important;
+}
+.page-wrapper {
+    background: #fff;
+   	padding: 0 10px;
+}
+.page-content h1,
+.page-content h2,
+.page-content h3,
+.page-content h4,
+.page-content h5,
+.page-content h6,{
+    color: #000000  !important;
+}
+.page-content,
+.main {
+	width: 100%;
+	display: block;
+	float: none;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	overflow: visible;
+}
+
+.header,
+.header-wrapper {
+	background: #ffffff;
+	color: #000000;
+}
+.header {
+    margin-bottom: 30px;
+}
+.page-content {
+	width: 100%;
+}
+
+a.gov-logo {
+    min-width: 190px;
+    max-width: 50%;
+    min-height: 80px;
+    max-height: 100px;
+    padding-right: 25px;
+    border-right: 2px solid #c1c1c1;
+    padding-left: 0;
+}
+.gov-logo img {
+    max-width: 180px;
+    max-height: 100px;
+}
+a.wr-logo {
+    padding-left: 20px;
+    min-width: 190px;
+    max-width: 50%;
+    max-height: 90px;
+    float: left;
+    margin-top: 4px;
+}
+a.wr-logo img {
+    max-width: 170px;
+    max-height: 100px;
+    float: left;
+}
+
+a.gov-logo img,
+a.wr-logo img {
+	display: none;
+}
+a.gov-logo img.print,
+a.wr-logo img.print {
+	display: block;
+}
+
+.last-reviewed {
+    float: left;
+}
+body.bg-active .page-wrapper {
+    background: #ffffff;
+}
+footer {
+	display: none !important;
+}

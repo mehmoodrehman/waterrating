@@ -1,0 +1,850 @@
+﻿/**
+ *
+ * Australian Government - Water Rating
+ * Wide CSS
+ *
+ */
+
+
+/*
+-------------------------------------------------------
+   Page Layout
+-------------------------------------------------------
+*/
+
+/* Main containers */
+.main {	
+    margin: 0 auto;
+    padding: 0;
+}
+.logo-wrapper,
+.nav-wrapper,
+.footer {
+    max-width: 1570px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.main-wrapper {
+}
+.main-inner-wrapper {
+    padding-bottom: 2em;
+    margin-bottom: 1em;
+}
+
+
+/* IE8 make layout fluid */
+.body-wrapper.lt-ie9 {
+    min-width: 800px;
+} 
+
+.page-content {
+    float: right;
+    width: 100%;
+    clear: none;
+    padding-bottom: 40px;
+    min-height: 500px;
+}
+
+
+
+/*
+-------------------------------------------------------
+   Header
+-------------------------------------------------------
+*/
+.header {
+	max-width: 1570px;
+	margin: 0 auto;
+	min-height: 140px;
+}
+
+.header {
+    padding: 20px 0 35px;
+    overflow: hidden;
+}
+.logos {
+	float: left;
+}
+
+a.wr-logo {
+    min-width: 160px;
+    margin-top: 12px;
+}
+a.wr-logo img {
+    max-width: 150px;
+    max-height: 100px;
+}
+
+
+/*
+-------------------------------------------------------
+   Global Search
+-------------------------------------------------------
+*/
+
+.global-search-form {
+    position: relative;
+    bottom: inherit;
+    right: inherit;
+    float: right;
+    clear: none;
+    width: 480px;
+}
+.global-search-form input[type="text"],
+.global-search-form button {
+    min-height: 44px;
+}
+.global-search-form {
+	margin-right: 0px;	
+		margin-top: 40px;
+}
+
+
+
+/*
+-------------------------------------------------------
+   Main Nav
+-------------------------------------------------------
+*/
+/* Clean sharepoint outof box styles */
+.nav-wrapper .ms-core-listMenu-horizontalBox .dynamic-children.additional-background {
+padding-right: 0;
+background-image: none;
+background-repeat: no-repeat;
+background-position: right center;
+cursor: pointer;
+}
+
+.nav-mobile-link-wrapper,
+.nav-mobile-link {
+    display: none;
+}
+
+.main-navigation,
+.main-navigation.active {
+    max-width: 1570px;
+    margin: 0 auto;
+    color: #ffffff;
+    max-height: 20em;
+    overflow: visible;
+    position: relative;
+    top: 0;
+    left: 0;
+    transition: initial;    
+    width: auto;
+}
+.nav-wrapper .root {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    max-width: 1570px;
+    box-shadow: none;
+}
+.nav-wrapper .root > li {
+    float: left;
+    margin-bottom: 0;
+    min-height: 75px;
+    display: table;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    border: 0;
+    position: static;
+}
+.nav-wrapper .root > li:hover {
+	color: #004f6f;
+	background:#ffffff;
+}
+.nav-wrapper .root > li:last-child {
+    padding-right: 1px;
+    margin-right: 0;
+}
+.main-navigation.active .root > li:first-child {
+	border-top: 0;
+}
+.nav-wrapper .root > li > a {
+    visibility:visible;
+    background: transparent;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    font-size: 18px;
+    font-size: 1.125rem;
+    border-radius: 0;
+    vertical-align: middle;   
+    padding: 0 10px;
+    box-sizing: content-box;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+    position: relative;    
+    transition: initial;
+    border: 0;
+}
+.nav-wrapper .root > li > a.menu-item.selected,
+.nav-wrapper .root > li > a.menu-item.open {    
+	background: #ffffff;
+	color: #004f6f;
+}
+.nav-wrapper .root > li:hover > a.menu-item {
+	color: #004f6f;
+}
+.nav-wrapper .root > li > a.menu-item:before,
+.nav-wrapper .root > li.selected > a.menu-item:before {
+	content: '';
+	background-color: #ffffff;
+	height: 5px;
+	width: 100%;
+	position: absolute;
+	bottom:0;
+	left:0;
+	z-index: 2;
+	box-sizing: content-box;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 200ms ease-out;
+}
+.nav-wrapper .root > li:hover > a.menu-item:before,
+.nav-wrapper .root > li.selected > a.menu-item:before  {
+	visibility: visible;
+	opacity: 1;
+	transition: all 200ms ease-out;
+}
+.nav-wrapper .root > li.selected > a.menu-item:before {
+	background-color: #45b8e6;	
+	box-sizing: border-box;
+	margin:0;
+}
+.nav-wrapper .root > li.selected:hover > a.menu-item {	
+	border-color: #ffffff;
+}
+
+.nav-wrapper .root > li > a.selected,
+.nav-wrapper .root > li > a.selected:hover,
+.nav-wrapper .root > li.selected:hover > a {
+    background: transparent;
+	color: #ffffff;
+}
+.nav-wrapper .root > li > a:active,
+.nav-wrapper .root > li > a:focus,
+.nav-wrapper .root > li:hover > a {
+    background: transparent;
+	color: #ffffff;
+}
+.nav-wrapper .root > li > a:focus {
+    outline: 1px dotted #c1c1c1;
+    outline-offset: -1px;
+}
+.main-navigation .root > li > a:hover, 
+.main-navigation .root > li > a:focus,
+.main-navigation .root > li.selected:hover > a,
+.main-navigation .root > li > a.selected,
+.main-navigation .ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item:hover,
+.main-navigation .ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item:focus {
+    color: #004f6f;
+    background: #ffffff;
+}
+
+
+
+/* Mega Menu */
+#main-navigation .megamenu {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	display: block;
+	left: 0;		
+	width: 100%;	
+	z-index: -1;
+	min-height: 0;
+	max-height: 0;
+	transition: opacity 200ms ease;
+	overflow: hidden;
+	background: #ffffff;
+    top: 75px;
+    min-width: 970px;
+}
+#main-navigation .megamenu.open {
+	opacity: 1;	
+	visibility: visible;
+	overflow: hidden;
+	z-index: 9999;
+    padding: 15px 20px;
+	max-width: 100%;
+	background: #ffffff;
+	left: 0;   
+    border-bottom: 8px solid #007dae;
+    box-shadow: 2px 10px 15px #333333;
+    width: 100%;
+    min-height: 250px;	
+	max-height: 800px;
+}
+p.megamenu__desc {
+    color: #000;
+    font-size: 20px;
+    font-size: 1.25rem;
+    margin: 5px 0 30px;
+    border-bottom: 2px solid #cccccc;
+    padding-bottom: 20px;
+}
+.megamenu ul {
+    padding: 0 10px;
+    list-style: none;
+    margin: 0;
+    width: 100%;
+    display: inline-block;
+}
+.megamenu ul li {
+    float: left;
+    width: 31%;
+    margin-right: 3.5%;
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+.megamenu ul li:nth-child(3n) {
+	margin-right: 0;	
+}
+a.megamenu__title {
+    font-size: 38px;
+    font-size: 2.375rem;
+    color: #004f6f;
+    margin-top: 8px;
+    display: inline-block;
+}
+p.submenu__desc {
+    color: #000;
+    font-size: 16px;
+    font-size: 1rem;
+}
+.megamenu ul a {
+    font-size: 20px;
+    font-size: 1.325rem;
+    color: #004f6f;
+    line-height: 22px;
+    text-decoration: underline;
+}
+
+/*
+-------------------------------------------------------
+   Featured Content
+-------------------------------------------------------
+*/
+.top-featured-content,
+div[class^="sec-"] {
+    margin: 0 -20px;
+}
+div[class^="sec-"] {
+	padding: 0 20px;
+}
+div[class^="sec-"] .col-1{
+	padding: 0 2% 0 0;
+}
+div[class^="sec-"] .col-2 {    
+	padding: 0 0 0 2%;
+}
+.top-featured-content-inner {
+    position: relative;
+}
+
+
+/* Home slider */
+.tfc__home-slider {
+    width: 60%;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.tfc__water-rating-label-image {
+    top: 30px;
+}
+.water-rating-label__cnt {
+	max-width: 600px;
+}
+
+
+/* Products statistic */
+div.sec-stats {
+    padding: 100px 5px 120px;
+}
+.sec-stats span.sub-text {
+    font-size: 36px;
+    font-size: 2.25rem;
+}
+.sec-stats span.large-text {
+    font-size: 60px;
+    font-size: 3.75rem;
+}
+div.sec-stats .stat:after {
+    width: 100%;
+    max-width: 550px;
+    min-height: 100px;
+    margin-top: 20px;
+}
+
+/* People animation */
+ul.stats-people {
+    margin-top: 40px;
+    width: 90%;
+    max-width: 550px;
+}
+
+ul.stats-people li.male:after,
+ul.stats-people li.female:after {
+    font-size: 62px;
+    font-size: 3.8rem;
+}
+
+/* Products animation */
+ul.stats-products {
+    width: 90%;
+    margin: 40px auto 0;
+    max-width: 550px;
+}
+ul.stats-products li {
+    width: 12%;
+    margin-right: 2%;
+}
+ul.stats-products li:after {
+	height: 65px;
+}
+
+
+
+/* Product search */
+.ps__form {
+    max-width: 600px;
+    display: flex;
+}
+.ps__form input[type="button"] {
+    float: left;
+    clear: none;
+    margin: 0 20px;
+}
+
+
+/* Sec  industry and wels login */
+div.sec-industry-wels-login {
+    padding-bottom: 100px;
+}
+
+div.sec-product-search-buy-efficient {
+    background-size: 60%;
+    background-position: 50% 103%;
+    padding-bottom: 140px;
+    padding-top: 20px;
+}
+
+
+
+
+
+
+/*
+-------------------------------------------------------
+   Secondary Nav
+-------------------------------------------------------
+*/ 
+.secondary-nav-wrapper {
+    float: left;
+    width: 25%;
+    clear: left;
+    display: block;
+}
+
+.secondary-nav #DeltaPlaceHolderLeftNavBar {
+    display: block !important;
+}
+.secondary-nav_toggle {
+    display: none;
+}
+
+/* Second level */
+.secondary-nav li ul.dynamic {
+    display: block;
+    min-width: 300px;
+}
+.secondary-nav li ul.dynamic a:hover {
+    color: #000000;
+}
+.secondary-nav li ul.dynamic .menu-item {
+    padding: .65em 1.2em;
+    background: #fff;
+    color: #343434;
+    border-left: 1px solid #c5c9cb;
+    border-right: 1px solid #c5c9cb;
+
+}
+
+/* Hover state */
+.secondary-nav li:hover ul.dynamic {
+    border: 0;
+    border-bottom: 5px solid #153a52;
+    border-top: 1px solid #c5c9cb;
+}
+.secondary-nav li:hover ul.dynamic .menu-item:hover {
+    background: #e3e3e3;
+    color: #333333;
+    border-left: 1px solid #e3e3e3;
+    border-right: 1px solid #e3e3e3;
+}
+
+/*Fly out size */
+.secondary-nav li:hover li ul.dynamic {
+    min-width: 250px;
+}
+
+/* Selected hover states */
+/* Level 1 */
+.secondary-nav li.selected:hover ul.dynamic {
+    box-shadow: none;
+    border: 0;
+}
+
+/* Level 2*/
+.secondary-nav li.selected:hover li ul.dynamic {
+    box-shadow: 0 0 3px #f1f1f1;
+    border: 0;
+    border-bottom: 5px solid #153a52;
+    border-top: 1px solid #c5c9cb;
+}
+.secondary-nav li.selected li ul.dynamic .menu-item {
+    background: #fff;
+    color: #343434;
+    padding: .6em .8em;
+    padding-left: 15px ;
+    border-left: 1px solid #c5c9cb;
+    border-right: 1px solid #c5c9cb;
+}
+
+
+
+
+
+
+/*
+-------------------------------------------------------
+   Main page content
+-------------------------------------------------------
+*/
+.main {
+    padding: 20px;
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 0;
+}
+.main h2 {
+    font-size: 60px;
+    font-size: 3.75rem;
+}
+.main h2:after {
+    width: 80px;
+    border-bottom-width: 9px;
+}
+.content {
+	float: left;
+	width: 51%;
+    margin-left: 1.5%;
+}
+.content.full-width {
+	width: 73%;
+	transition: width 100ms ease;
+}
+.two-col .content.full-width,
+.two-col .content {
+	width: 73%;
+}
+
+.left-col {
+    float: left;
+    width: 20%;
+    clear: left;
+	display: block;
+}
+.page-content h2 {
+    font-size: 50px;
+    font-size: 3.125rem;
+}
+
+
+/* 
+-------------------------------------------------------
+	Lineage 
+-------------------------------------------------------
+*/ 
+.lineage-wrapper {
+	width: 100%;
+    padding: 20px 10px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.lt-ie9 .lineage-wrapper {
+	max-width: 1170px;
+}
+.lineage {
+	display: block;
+	padding: 0;
+	margin: 0 auto;
+	clear: both;
+	list-style: none;
+	color: #231f20;
+}
+.lineage li {
+	display: inline-block;
+	padding-right: 20px;
+}
+.lineage li:after {
+	text-decoration: none;
+	position: absolute;
+	content: '/';
+	font-size: 16px;
+	font-size: 1rem;
+	margin: 0 .3em 0 .6em;
+	display: inline;
+	color: #231f20;
+}
+.lineage li:last-child:after {
+	display: none;
+}
+.lineage a {
+	position: relative;
+	display: inline-block;
+	color: #007dae;
+	text-decoration: underline;
+	font-size: 16px;
+	font-size: 1rem;
+	font-weight: normal;
+}
+.lineage a:hover,
+.lineage a:focus,
+.lineage a:active {
+	text-decoration: underline;
+}
+
+.lineage-links > a {
+	display: none;
+}
+.lineage-links > a:after {
+	content: '';
+	text-decoration: none;
+	
+}
+
+
+
+
+
+/*
+-------------------------------------------------------
+   Footer
+-------------------------------------------------------
+*/
+
+.footer {
+    padding: 20px 0 30px;
+    font-size: 24px;
+    font-size: 1.5rem;
+    overflow: hidden;
+}
+.footer-col h3 {
+    font-size: 32px;
+    font-size: 2rem;
+}
+.footer-col h4 {
+    font-size: 24px;
+    font-size: 1.5rem;
+}
+.footer .site-info, .footer .contact,.footer .copyright {
+    width: 33%;
+    float: left;
+    clear: none;
+}
+.footer .copyright {
+   padding-top: 0; 
+}
+.footer .contact {
+    width: 34%;
+}
+.footer__water-label-img {
+    display: block;
+    max-width: 150px;
+}
+.footer__cp-links p {
+    display: inline;
+}
+.footer__cp-links p:first-child:after {
+    content: '|';
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 7px;
+}
+.footer__cp-links {
+    margin: 10px 0;
+}
+
+
+
+
+/*
+----------------------------------------------------------
+		Screen width above 1200px
+----------------------------------------------------------
+*/
+
+@media only screen and (min-width: 1200px) {
+	
+	.nav-wrapper .root > li {
+	    position: relative;
+	}
+
+	#main-navigation .megamenu {
+	    padding: 15px 20px;
+		width: 980px;
+		background: #ffffff;
+		border-bottom: 8px solid #007dae;
+		z-index: 9999;
+	    box-shadow: 2px 10px 15px #333333;
+	}
+
+	#main-navigation .megamenu.open {
+		max-width: 100%;
+		left: 0;   	
+	}
+
+
+	/* 
+	 *	Mega menu positioning 
+	 *	Logic: 
+	 *	First and last megamenu oriented left and right to the edges
+	 *	4th item being middle, megamenu will be centered
+	 *	Less than middle point left oriented
+	 *	Greater than middle point right oriented
+	 *	
+	 */
+	 
+	/* Left oriented megamenu */
+	#main-navigation li.accessible-megamenu-top-nav-item:nth-child(-n+4) .megamenu {
+	    left: -60px;
+	}
+	
+	/* Right oriented megamenu */
+	#main-navigation li.accessible-megamenu-top-nav-item:nth-child(n+4) .megamenu {
+		left: auto;
+	    right: -60px;
+	}
+	
+	
+	/* First and last megamenu */
+	#main-navigation li.accessible-megamenu-top-nav-item:first-child .megamenu {
+	    left: 0;
+	}
+	#main-navigation li.accessible-megamenu-top-nav-item:last-child .megamenu {
+	    left: auto;
+	    right: 0;	    
+	}
+	
+	/* Middle oriented megamenu */
+	#main-navigation li.accessible-megamenu-top-nav-item:nth-child(4) .megamenu {
+		left: -370px;
+	    right: auto;
+	}
+	
+	
+	/* Home background positioning */
+	.page-wrapper {
+	    background-position: 50% -70px;
+	}
+	.tfc__water-rating-label h2 {
+	    margin-top: 80px;
+	}
+	
+
+	/* Page reuseable content */
+	.product-search.inside {
+		background-size: 75%;
+	}
+	
+	
+	/* Products animation */
+	ul.stats-products li {
+	    width: 11%;
+	    margin-right: 2%;
+	    margin-left: 1%;
+	}
+	ul.stats-products li:after {
+		height: 75px;
+	}
+
+
+}
+/*
+----------------------------------------------------------
+		Full width screen beyond 1400px
+----------------------------------------------------------
+*/
+
+@media only screen and (min-width: 1400px) {
+
+	/* Layout resizing */
+	.secondary-nav-wrapper {
+	    width: 21%;
+	}
+	.content.full-width {
+	    width: 70%;
+	}
+	.main {
+	    padding: 20px;
+	    border: 0;
+	    margin-bottom: 0;
+	    padding-bottom: 0;
+	}
+    .lineage-wrapper {
+        max-width: 1570px;
+    }
+	/* Home section content */
+	div.top-featured-content-inner,
+	div.sec-product-search-buy-efficient-inner,
+	div.sec-stats-inner,
+	div.sec-industry-wels-login-inner {    
+	    max-width: 1570px;
+	    margin: 0 auto;
+	    padding: 0;
+	}
+	.tfc__water-rating-label h2 {
+	    margin-top: 120px;
+	}
+
+	.nav-wrapper .root > li > a {
+		padding: 0 10px;
+	}
+	
+	.lineage-wrapper {
+	    padding: 20px 10px;
+	}
+	
+	/* Home slider */
+	.tfc__home-slider .slick-dots button:after,
+	.tfc__home-slider .hs__play-pause:after {
+	    color: #ffffff;
+	}
+
+	/* Products animation */
+	ul.stats-products li:after {
+		height: 85px;
+	}
+	
+
+	/* Scroll to top of the page */
+	
+	a.scroll {
+		right: 50px;
+	}
+
+
+}
+

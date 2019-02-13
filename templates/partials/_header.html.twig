@@ -1,65 +1,54 @@
-<header class="navbar">
-  <div class="container vcenter">
-    <div class="row">
-      <div class="col-md-8 col-sm-12">
-        <div class="navbar-header">
-          <a href="{{ url('<front>') }}" class="brand navbar-left has-img vcenter">
-            <img src="{{ base_path ~ directory }}/logo.svg" alt="Home" height="70">
-            <h1 class="brand-heading style-line CoT-ignore">
-              {{ site_name }}
-              <span class="label">alpha</span>
-            </h1>
+<div class="header-wrapper  noindex">
+  <div id="top" class="skiplinks" aria-hidden="true">
+      <ul class="skiplinks-list">
+          <li>
+              <a class="skiplinks-link" href="#main">Skip to content</a>
+          </li>
+      </ul>
+  </div>
+  <!--/.skip-links-->
+                            
+  <div class="header">
+      <div class="logos clearfix">
+          <a href="/" class="gov-logo" title="Australian Government">
+              <img src="{{ base_path ~ directory }}/aus-gov-logo.svg" alt="">
+              <img class="print" src="./Water Rating _ Australian Government_files/aus-gov-logo-dark.svg" alt="">
+              <span class="visually-hidden">Australian Government</span>
           </a>
-        </div>
+          <a href="/" class="wr-logo" title="Water Rating">
+              <img src="{{ base_path ~ directory }}/waterrating-logo.svg" alt="">
+              <img class="print" src="{{ base_path ~ directory }}/waterrating-logo-dark.svg" alt="">
+              <span class="visually-hidden">{{ site_name }}  </span>
+          </a>
       </div>
-      {% if page.header is defined and page.header | render | striptags | trim %}
-        <div class="col-md-4 col-sm-12">
-          <form class="input-group" block="block-searchform" region="header" action="/search" method="get" id="search-block-form" accept-charset="UTF-8" data-drupal-form-fields="edit-keys">
-            <input class="form-control" placeholder="Search for…" data-drupal-selector="edit-keys" type="text" title="" id="edit-keys" name="keys" value="" data-toggle="tooltip" data-placement="top" data-original-title="Search">
-            <span class="input-group-btn">
-              <button class="btn btn-default" data-drupal-selector="edit-submit" type="submit" id="edit-submit" title="" data-toggle="tooltip" data-placement="top">
-                <i class="glyphicon glyphicon-search"></i>
-                <span class="sr-only">Search</span>
-              </button>
-            </span>
-          </form>
-        </div>
-      {% endif %}
-    </div>
-  </div>
-</header>
-<div class="main-nav">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <nav class="navbar-collapse collapse" id="main-navigation">
-          <ul class="nav navbar-nav nav-tabs nav-justified">
-            <div class="{{ nav_class }}">
-              {{ page.nav }}
-            </div>
-          </ul>
-        </nav>
+      <!-- .logos -->
+      <div id="global-search-form" data-action="/search" class="global-search-form">
+          <label for="global-search-query" class="visually-hidden">Search keyword
+          
+          </label>
+          <input id="global-search-query" type="text" name="query" placeholder="Search waterrating.gov.au">
+          <button type="button" name="search">
+              <span class="visually-hidden">Search
+              
+              </span>
+          </button>
       </div>
-      {% if page.nav_search is defined and page.nav_search | render | striptags | trim %}
-        <div class="col-sm-3">
-          <form class="input-group" block="block-searchform" region="nav" action="/search/node" method="get" id="search-block-form" accept-charset="UTF-8">
-            <input class="form-control" placeholder="Search for…" data-drupal-selector="edit-keys" type="search" id="edit-keys" name="keys">
-            <span class="input-group-btn">
-              <button class="btn btn-default" id="edit-submit" type="search" data-toggle="tooltip" data-placement="top">
-                <i class="glyphicon glyphicon-search"></i>
-                <span class="sr-only">Search</span>
-              </button>
-            </span>
-          </form>
-        </div>
-      {% endif %}
-    </div>
   </div>
+  <!-- .header -->
+
 </div>
-{% if page.highlighted and page.highlighted | render | striptags | trim %}
-  <div class="jumbotron">
-    <div id="highlight-region" class="container">
-      {{ page.highlighted }}
-    </div>
+<!-- .header-wrapper -->
+
+
+<div class="nav-wrapper clearfix noindex ms-dialogHidden">
+  <div class="nav-mobile-link-wrapper">
+    <a class="nav-mobile-link" title="Show/Hide menu" href="javascript:void(0)">
+      <span class="menu-icon"></span>
+      Main menu
+    </a>
   </div>
-{% endif %}
+  <nav id="main-navigation" class="main-navigation">
+    {{ page.nav }}
+  </nav>
+</div>
+<!-- .nav-wrapper -->

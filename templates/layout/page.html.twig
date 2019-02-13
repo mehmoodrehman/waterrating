@@ -1,44 +1,66 @@
 {% include directory ~ '/templates/partials/_header.html.twig' %}
+
 <main class="container">
-    <a id="main-content" tabindex="-1"></a>
-    <div id="main" class="main-container row">
-        <div id="content">
-            <div class="title-block">
-                {% if page.breadcrumb is defined and page.breadcrumb|render|striptags|trim %}
-                    {{ page.breadcrumb }}
-                {% endif %}
-                {% if page.help is defined and page.help|render|striptags|trim %}
-                    {{ page.help }}
-                {% endif %}
-            </div>
-            {% set left_exists = sidebar_first_exists is defined %}
-            {% set right_exists = sidebar_second_exists is defined %}
-            {% if page.sidebar_first %}
-                <aside class="col-sm-3" role="complementary">
-                    {{ page.sidebar_first }}
-                </aside>
-            {% endif %}
+    <div class="main-wrapper">
+        {% if page.breadcrumb is defined and page.breadcrumb|render|striptags|trim %}
+            <div class="lineage-wrapper  ms-dialogHidden noindex">
+                {{ page.breadcrumb }}
+            </div><!-- .lineage-wrapper -->
+        {% endif %}  
+
+        {% set left_exists = sidebar_first_exists is defined %}
+        {% set right_exists = sidebar_second_exists is defined %}
+
+        <div id="main" class="main clearfix ">
+            <div class="secondary-nav-wrapper noindex ms-dialogHidden">
+                <div class="secondary-nav">
+                    <a class="secondary-nav__section-title" href="http://www.waterrating.gov.au/">Water Rating</a>            
+                    <a href="http://www.waterrating.gov.au/label-display#" class="secondary-nav_toggle"><span class="visually-hidden">Expand links</span>In this section </a>
+                    <div id="DeltaPlaceHolderLeftNavBar" class="ms-core-navigation">
+                        {% if page.sidebar_first %}
+                            {{ page.sidebar_first }}                    
+                        {% endif %}
+                    </div>    
+                </div><!-- .secondary-nav -->
+            </div><!-- .secondary-nav-wrapper -->
 
             {%
-            set content_classes = [
-            (left_exists and right_exists) ? 'col-sm-6',
-            (not left_exists and not right_exists) ? 'col-sm-12',
-            ((left_exists and not right_exists) or (not left_exists and right_exists)) ? 'col-sm-9',
-            ]
+                set content_classes = [
+                    (left_exists and right_exists) ? 'col-sm-6',
+                    (not left_exists and not right_exists) ? 'col-sm-12',
+                    ((left_exists and not right_exists) or (not left_exists and right_exists)) ? 'col-sm-9',
+                ]
             %}
-            <section id="main-content-section" {{ content_attributes.addClass(content_classes) }} role="main">
-                <div id="page-content">
-                    {{ page.content }}
-                </div>
-            </section>
 
-            {% if (page.sidebar_second) %}
-                <aside class="col-sm-3 right-bar" role="complementary">
+            <div class="content full-width">
+            <div {{ content_attributes.addClass(content_classes) }}>
+                <h1 class="page-title">
+                    <div data-name="Page Field: Title">Label and display registered products</div>
+                </h1>
+                <div class="page-content">
+                    {{ page.content }}
+                </div><!-- .page-content -->
+
+                <div class="page-content-footer ms-dialogHidden">
+                    <a href="javascript:window.print()" class="print-page" title="Print this page">
+                    <span class="visually-hidden">Print page</span>
+                    </a>
+                    <div class="last-reviewed">
+                        <strong>Last modified:</strong>
+                        <div class="last-reviewed__value" data-name="Page Field: Article Date">9 November 2017</div>
+                    </div>
+                </div><!-- .page-content-footer -->
+                </div>
+            </div><!-- .content -->
+
+            {% if (page.sidebar_second) %}                
+                <div class="right-col">  
                     {{ page.sidebar_second }}
-                </aside>
-            {% endif %}
-        </div>
-    </div>
+                </div><!-- .right-col -->
+            {% endif %}                                      
+
+        </div><!-- .main -->   
+    </div><!-- .main-wrapper -->   
 </main>
 
 {% include directory ~ '/templates/partials/_footer.html.twig' %}

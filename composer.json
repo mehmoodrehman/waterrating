@@ -1,7 +1,7 @@
 {
-    "name": "govcms/govcms8-ui",
-    "description": "A Drupal 8 theme for govCMS incorporating the DTA UI Kit",
-    "keywords": ["govCMS", "govCMS8"],
+    "name": "waterrating",
+    "description": "WaterRating theme based on alpha GovCMS Ui theme",
+    "keywords": ["govCMS", "waterrating"],
     "type": "drupal-theme",
     "minimum-stability": "dev",
     "prefer-stable": true,

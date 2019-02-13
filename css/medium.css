@@ -1,0 +1,547 @@
+﻿/**
+ *
+ * Australian Government - Water Rating
+ * Medium CSS
+ *
+ */
+
+
+.body-wrapper {
+  background-position: 50% -5%;
+}
+
+/*
+-------------------------------------------------------
+   Header
+-------------------------------------------------------
+*/
+
+.header-wrapper {
+    position: relative;
+    z-index: 4;
+}
+.header {
+    padding: 20px 0 25px;
+}
+.main-inner-wrapper {
+    padding: 15px;    
+}
+
+/* logo */
+.logos {
+	min-width: 500px;
+}
+a.gov-logo {  
+    min-width: 190px;
+    max-width: 50%;
+    min-height: 80px;
+    max-height: 100px;
+    padding-right: 25px;
+}
+.gov-logo img {
+    max-width: 180px;
+    max-height: 100px;
+}
+
+a.wr-logo {
+    padding-left: 20px;
+    min-width: 190px;
+    max-width: 50%;
+    max-height: 90px;
+    float: left;
+}
+a.wr-logo img {
+    max-width: 165px;
+    max-height: 100px;
+    float: left;
+}
+
+.page-wrapper {
+    background-position: 50% -20px;
+    overflow: hidden;
+}
+
+
+/* Wide float */
+.wide-float-left {
+	float: left;
+}
+.wide-float-right {
+	float: right;
+}
+
+/*
+-------------------------------------------------------
+   Global Search
+-------------------------------------------------------
+*/
+
+.global-search-form {
+    position: absolute;
+    bottom: -65px;
+    right: 0;
+    min-width: 400px;
+}
+
+
+
+
+/*
+-------------------------------------------------------
+   Main Nav
+-------------------------------------------------------
+*/
+.nav-wrapper {
+  position: relative;
+  z-index: 9999;
+}
+.nav-mobile-link-wrapper {
+  width: 350px;
+  position: relative;
+  z-index: 3;
+}
+
+a.nav-mobile-link,
+a.nav-mobile-link.active,
+a.nav-mobile-link:visited,
+a.nav-mobile-link:active {
+    margin-top: 0;
+}
+
+.main-navigation {
+  position: absolute;
+  top: 75px;
+  transition: left 200ms ease-out;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  left: -400px;
+}
+.main-navigation.active {
+  max-height: 100em;
+  overflow: visible;
+  top: 70px;
+  z-index: 1;
+  width: 350px;
+  left: 0;
+  margin-top: -8px;
+}
+.main-navigation .root {
+    box-shadow: 1px 3px 7px rgba(68, 68, 68, 0.5);
+    padding: 0;
+    margin-left: 10px;
+}
+.main-navigation .root > li > a {
+  padding: 15px 20px;
+  border: 1px solid rgba(0,0,0,.1);
+}
+
+
+
+
+/*
+-------------------------------------------------------
+   Page content
+-------------------------------------------------------
+*/
+.main {
+    padding: 0 10px;
+}
+.home .main {
+    padding: 0;
+}
+
+
+
+
+
+
+/*
+-------------------------------------------------------
+   Featured Content
+-------------------------------------------------------
+*/
+
+.top-featured-content {
+    position: relative;
+}
+.top-featured-content,
+div[class^="sec-"] {
+    margin: 0 -10px;
+}
+
+/* Second row execption */
+div[class^="sec-"] .sec-industry-wels-login-inner {
+    padding-top: 30;
+    margin-top: 0;
+}
+
+
+/* Home page featured slider */
+.tfc__home-slider {
+    width: 100%;
+    float: left;
+    margin-bottom: 120px;
+    min-height: 480px;
+    max-height: 500px;
+    position:relative;
+}
+
+/* Override mobile 100% width */
+.hs-content iframe {
+    width: 480px !important;
+}
+
+.hs__controls {
+    bottom: 0;
+    margin-top: 20px;
+}
+.slick-slide {
+    min-height: 350px;
+}
+.tfc__home-slider .slick-dots button:after,
+.tfc__home-slider .hs__play-pause:after {
+    color: #ffffff;
+}
+.hs__play-pause {
+    margin-left: 0;
+    padding-left: 2px;
+    margin-right: 5px;
+}
+
+.hs-item.image-text h2{
+    margin-top: 0;
+}
+.hs-item.image-text .hs-content {
+	width:50%;
+	float: left;
+    padding-right: 20px;
+}
+.hs-item.image-text .hs-img {
+    width: 50%;
+    float: right;
+    max-width: 100%;
+    margin-top: -75px;
+    display: block;
+}
+
+
+/* Water label image */
+.tfc__water-rating-label-image {
+    width: 40%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* Water label */
+.tfc__water-rating-label {
+    float: left;
+    width: 60%;
+    margin-bottom: 0;
+}
+
+.tfc__water-rating-label h2 {
+    text-shadow: 0 0 3px #e5e5e5;
+}
+div[class^="sec-"] .col-1,
+div[class^="sec-"] .col-2 {
+    float: left;
+    width: 50%;
+    padding: 0 2%;
+}
+
+div[class^="sec-"] .col-1 {
+  padding-right: 2%;
+}
+div[class^="sec-"] .col-2 {
+  padding-left: 2%;
+}
+
+
+/* Product search form */
+.ps__form {
+    max-width: 400px;
+}
+.ps__type-wp:before {
+    height: 43px;
+    top: 0px;
+    line-height: 43px;
+}
+
+
+/* Products search and buy efficient water appliance */
+div.sec-product-search-buy-efficient {
+    background: #ffffff url(images/products-icon.png) 50% 102% no-repeat;
+    padding-bottom: 100px;
+    background-size: 90%;
+}
+
+
+
+/* Products and people statistic */
+.stat.people {
+    padding-right: 2%;
+}
+div.sec-stats {
+    background: #cae3f1;
+    padding: 100px 5px;
+    display: block;
+}
+div.sec-stats .stat {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+.no-js div.sec-stats .stat:after {
+  display: block;
+  width: 75%;
+  max-width: 320px;
+  content: '';
+  min-height: 60px;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.no-js div.sec-stats .stat.people:after {
+  background: url(images/stats-people-icon.png) 50% 0 no-repeat;
+  background-size: 100%;
+}
+.no-js div.sec-stats .stat.products:after { 
+  background: url(images/stats-products-icon.png) 50% 0 no-repeat;
+  background-size: 100%;
+}
+.sec-stats span.large-text {
+    display: block;
+    font-size: 44px;
+    font-family: Calibri Light,arial, sans-serif;
+    color: #004f6f;
+}
+.sec-stats span.large-text small {
+    font-size: 60%;
+}
+.sec-stats span.sub-text {
+    color: #000000;
+    font-size: 22px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+
+/* People statistic animation */
+
+ul.stats-people {
+    padding: 0;
+    list-style: none;
+    width: 70%;
+    display: inline-block;
+    margin: 20px auto 0;
+}
+ul.stats-people li {
+    float: left;
+    width: 10%;
+    display: block;
+    min-height: 40px;
+}
+ul.stats-people li.male:after,
+ul.stats-people li.female:after {
+    font-family: 'FontAwesome';
+    font-size: 26px;
+    font-size: 2.75rem;
+    color: #ffffff;
+    display: inline-block;
+    content: '\f183';
+    text-indent: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: all ease 400ms;
+}
+ul.stats-people li.female:after {    
+    content: '\f182';
+}
+
+ul.stats-people li.alive:after {
+    color: #36b9e8;
+}
+
+
+
+/* Products statistic animation */
+ul.stats-products {
+    padding: 0;
+    list-style: none;
+    width: 70%;
+    display: inline-block;
+    margin: 20px auto 0;
+}
+ul.stats-products li {
+    float: left;
+    width: 14%;
+    display: block;
+    min-height: 55px;
+    transition: all ease 400ms;
+    background-image: url(images/stats-product-icon_blank.png);
+    background-size: 100%;
+	background-color: transparent;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+}
+ul.stats-products li:after {
+	content: '';
+	color: #ffffff;
+	display: inline-block;
+	text-indent: 0;
+	transition: all ease 400ms;
+	background-color: transparent;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+	background-image: url(images/stats-product-icon_blank.png);
+	background-size: 100%;
+	height: 55px;
+	width: 100%;
+	transition: all ease 400ms;
+}
+
+
+
+ul.stats-products li.shower.alive:after {
+	background-image: url(images/stats-product-icon_shower.png);
+}
+ul.stats-products li.toilet.alive:after {
+	background-image: url(images/stats-product-icon_toilet.png);
+}
+ul.stats-products li.tap.alive:after {
+	background-image: url(images/stats-product-icon_tap.png);
+}
+ul.stats-products li.dishwasher.alive:after {
+	background-image: url(images/stats-product-icon_dishwasher.png);
+}
+ul.stats-products li.washingmachine.alive:after {
+	background-image: url(images/stats-product-icon_washingmachine.png);
+}
+ul.stats-products li.drop.alive:after {
+	background-image: url(images/stats-product-icon_drop.png);
+}
+ul.stats-products li.label.alive:after {
+	background-image: url(images/stats-product-icon_label.png);
+}
+
+
+
+
+
+/* Page reuseable content */
+.product-search.inside {
+	background: #ffffff url(images/products-icon.png) 50% 102% no-repeat;
+	padding-bottom: 100px;
+	background-size: 90%;
+}
+
+
+
+/*
+---------------------------------------------------
+	Page feedback
+---------------------------------------------------
+*/
+
+.page-feedback {
+	padding: 15px;
+}
+.page-feedback p.page-helpful,
+.page-feedback span {
+    font-size: 32px;
+    font-size: 2rem;
+    line-height: 1.5em;
+    padding-right: 13px;
+}
+
+.page-feedback button,
+.page-feedback input[type="button"]{
+    padding: 6px 25px;
+    min-width: 6em;
+    margin-left: 20px;
+    margin-top: 6px;
+}
+.page-feedback__submit input[type="button"] {	
+    margin-left: 0;
+}
+.page-feedback__msg,
+.page-feedback__msg.success {
+    font-size: 18px;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+}
+
+
+
+
+
+/* Scroll to top of the page */
+
+a.scroll {
+	right: 40px;
+}
+
+
+/*
+-------------------------------------------------------
+   Footer
+-------------------------------------------------------
+*/
+
+.footer {
+    padding: 20px 0 30px;
+    text-align: left;
+}
+.footer .site-info,
+.footer .contact {
+    float: left;
+    width: 46%;
+    padding: 0 2%;
+}
+.footer-col.copyright {
+    clear: both;
+    display: block;
+    float: none;
+    padding: 60px 2% 20px;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+   WIDER TABLET SCREENS
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+*/
+
+@media only screen and (min-width: 960px) {
+
+	/* Page content containers */
+	.content {
+		float: left;
+		width: 76.5%;
+	}
+	.content.full-width,
+	.two-col .content.full-width,
+	.two-col .content {
+		width: 100%;
+		transition: width 100ms ease;
+	}	
+	.right-col {
+		float: right;
+		width: 22%;
+		display: block;
+		margin: 0;
+    font-size: 18px;
+    font-size: 1.125rem;
+	}
+	.page-content-footer {
+		padding: 20px 0;
+	}
+
+	/* Sponsors list */
+	.sponsors ul li {
+	    width: 23%;
+	}
+}

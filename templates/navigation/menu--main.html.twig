@@ -31,10 +31,9 @@
       {% import _self as menus %}
       {% if items %}
         {% if menu_level == 0 %}
-            <ul{{ attributes.removeClass('nav-justified') }}>
             <ul{{ attributes.addClass('nav', 'navbar-nav', 'nav-tabs', 'nav-justified') }}>
         {% else %}
-            <ul {{ attributes.addClass('dropdown-menu') }}>
+            <ul {{ attributes.addClass('dropdown-menu', ('level' ~ (menu_level + 1))) }}>
         {% endif %}
         {% for item in items %}
             <li{{ item.attributes }}>

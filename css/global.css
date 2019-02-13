@@ -124,7 +124,7 @@ body {
 body.ribbon-visible {
 	overflow: hidden;
 }
-body.bg-active .page-wrapper {
+body .page-wrapper {
     background: #e5e5e5 url(images/body-bg.jpg) no-repeat 50% 0;
 
 }
@@ -762,20 +762,20 @@ h1,
 }
 .page-content a[href$=".doc"]:after,
 .page-content a[href$=".docx"]:after {
-	background: url(/Style%20Library/css/images/word-icon.png) no-repeat 0 0;
+	background: url(images/word-icon.png) no-repeat 0 0;
 }
 .page-content a[href$=".ppt"]:after,
 .page-content a[href$=".pptx"]:after {
-	background: url(/Style%20Library/css/images/powerpoint-icon.png) no-repeat 0 0;	
+	background: url(images/powerpoint-icon.png) no-repeat 0 0;	
 }
 .page-content a[href$=".xls"]:after,
 .page-content a[href$=".xlsx"]:after,
 .page-content a[href$=".xltx"]:after,
 .page-content a[href$=".csv "]:after {
-	background: url(/Style%20Library/css/images/excel-icon.png) no-repeat 0 0;	
+	background: url(images/excel-icon.png) no-repeat 0 0;	
 }
 .page-content a[href$=".pdf"]:after {
-	background: url(/Style%20Library/css/images/pdf-icon.png) no-repeat 0 0;
+	background: url(images/pdf-icon.png) no-repeat 0 0;
 	top: 2px;
 }
 

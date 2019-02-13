@@ -3,11 +3,13 @@ global-styling:
   css:
     theme:
         css/global.css: {}
-        css/medium.css: { media: screen and (min-width: 45em) }
-        css/wide.css: { media: screen and (min-width: 70em) }
+        css/medium.css: { media: screen and (min-width: 768px) }
+        css/wide.css: { media: screen and (min-width: 1025px) }
         css/print.css: { media: print }
   js:
     js/scripts.js: {}
+    js/slick.min.js: {}
+    js/jquery-accessibleMegaMenu.js: {}
     js/global.js: {}
   dependencies:
     - core/jquery

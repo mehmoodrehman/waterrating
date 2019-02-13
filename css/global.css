@@ -422,27 +422,27 @@ a.nav-mobile-link:focus {
 	width: 100%;
 	z-index: 9;
 }
-.main-navigation .root {
+.main-navigation ul.nav {
     padding: 0;
     margin: -2px 10px 1em;
     display: block;
     box-shadow: 1px 3px 7px rgba(68, 68, 68, 0.5);
 }
-.main-navigation .root > li {
+.main-navigation ul.nav > li {
 	display: block;
 	position: relative;
 	border-bottom: 1px solid #999999;
 }
-.main-navigation.active .root > li:first-child {
+.main-navigation.active ul.nav > li:first-child {
 	border-top: 5px solid #45b8e6;
 }
-.main-navigation .root > li:last-child {
+.main-navigation ul.nav > li:last-child {
 	border-bottom: 0;
 }
-.main-navigation .root > li.selected {
+.main-navigation ul.nav > li.selected {
 	border-bottom: 0;
 }
-.main-navigation .root > li > a {
+.main-navigation ul.nav > li > a {
 	color: #343434;
 	display: block;
 	padding: 16px 15px;
@@ -451,7 +451,7 @@ a.nav-mobile-link:focus {
 	transition: all 300ms ease;
 	visibility:collapse;
 }
-.main-navigation.active .root > li > a {
+.main-navigation.active ul.nav > li > a {
 	visibility: visible;
 }
     

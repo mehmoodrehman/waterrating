@@ -126,12 +126,12 @@ a.nav-mobile-link:active {
   left: 0;
   margin-top: -8px;
 }
-.main-navigation .root {
+.main-navigation ul.nav {
     box-shadow: 1px 3px 7px rgba(68, 68, 68, 0.5);
     padding: 0;
     margin-left: 10px;
 }
-.main-navigation .root > li > a {
+.main-navigation ul.nav > li > a {
   padding: 15px 20px;
   border: 1px solid rgba(0,0,0,.1);
 }

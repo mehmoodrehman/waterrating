@@ -134,7 +134,7 @@ cursor: pointer;
     transition: initial;    
     width: auto;
 }
-.nav-wrapper .root {
+.nav-wrapper ul.nav {
     margin: 0;
     list-style: none;
     padding: 0;
@@ -146,7 +146,7 @@ cursor: pointer;
     max-width: 1570px;
     box-shadow: none;
 }
-.nav-wrapper .root > li {
+.nav-wrapper ul.nav > li {
     float: left;
     margin-bottom: 0;
     min-height: 75px;
@@ -157,18 +157,18 @@ cursor: pointer;
     border: 0;
     position: static;
 }
-.nav-wrapper .root > li:hover {
+.nav-wrapper ul.nav > li:hover {
 	color: #004f6f;
 	background:#ffffff;
 }
-.nav-wrapper .root > li:last-child {
+.nav-wrapper ul.nav > li:last-child {
     padding-right: 1px;
     margin-right: 0;
 }
-.main-navigation.active .root > li:first-child {
+.main-navigation.active ul.nav > li:first-child {
 	border-top: 0;
 }
-.nav-wrapper .root > li > a {
+.nav-wrapper ul.nav > li > a {
     visibility:visible;
     background: transparent;
     font-weight: bold;
@@ -188,16 +188,16 @@ cursor: pointer;
     transition: initial;
     border: 0;
 }
-.nav-wrapper .root > li > a.menu-item.selected,
-.nav-wrapper .root > li > a.menu-item.open {    
+.nav-wrapper ul.nav > li > a.menu-item.selected,
+.nav-wrapper ul.nav > li > a.menu-item.open {    
 	background: #ffffff;
 	color: #004f6f;
 }
-.nav-wrapper .root > li:hover > a.menu-item {
+.nav-wrapper ul.nav > li:hover > a.menu-item {
 	color: #004f6f;
 }
-.nav-wrapper .root > li > a.menu-item:before,
-.nav-wrapper .root > li.selected > a.menu-item:before {
+.nav-wrapper ul.nav > li > a.menu-item:before,
+.nav-wrapper ul.nav > li.selected > a.menu-item:before {
 	content: '';
 	background-color: #ffffff;
 	height: 5px;
@@ -211,43 +211,41 @@ cursor: pointer;
 	opacity: 0;
 	transition: opacity 200ms ease-out;
 }
-.nav-wrapper .root > li:hover > a.menu-item:before,
-.nav-wrapper .root > li.selected > a.menu-item:before  {
+.nav-wrapper ul.nav > li:hover > a.menu-item:before,
+.nav-wrapper ul.nav > li.selected > a.menu-item:before  {
 	visibility: visible;
 	opacity: 1;
 	transition: all 200ms ease-out;
 }
-.nav-wrapper .root > li.selected > a.menu-item:before {
+.nav-wrapper ul.nav > li.selected > a.menu-item:before {
 	background-color: #45b8e6;	
 	box-sizing: border-box;
 	margin:0;
 }
-.nav-wrapper .root > li.selected:hover > a.menu-item {	
+.nav-wrapper ul.nav > li.selected:hover > a.menu-item {	
 	border-color: #ffffff;
 }
 
-.nav-wrapper .root > li > a.selected,
-.nav-wrapper .root > li > a.selected:hover,
-.nav-wrapper .root > li.selected:hover > a {
+.nav-wrapper ul.nav > li > a.selected,
+.nav-wrapper ul.nav > li > a.selected:hover,
+.nav-wrapper ul.nav > li.selected:hover > a {
     background: transparent;
 	color: #ffffff;
 }
-.nav-wrapper .root > li > a:active,
-.nav-wrapper .root > li > a:focus,
-.nav-wrapper .root > li:hover > a {
+.nav-wrapper ul.nav > li > a:active,
+.nav-wrapper ul.nav > li > a:focus,
+.nav-wrapper ul.nav > li:hover > a {
     background: transparent;
 	color: #ffffff;
 }
-.nav-wrapper .root > li > a:focus {
+.nav-wrapper ul.nav > li > a:focus {
     outline: 1px dotted #c1c1c1;
     outline-offset: -1px;
 }
-.main-navigation .root > li > a:hover, 
-.main-navigation .root > li > a:focus,
-.main-navigation .root > li.selected:hover > a,
-.main-navigation .root > li > a.selected,
-.main-navigation .ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item:hover,
-.main-navigation .ms-core-listMenu-horizontalBox li.static > .ms-core-listMenu-item:focus {
+.main-navigation ul.nav > li > a:hover, 
+.main-navigation ul.nav > li > a:focus,
+.main-navigation ul.nav > li.selected:hover > a,
+.main-navigation ul.nav > li > a.selected {
     color: #004f6f;
     background: #ffffff;
 }

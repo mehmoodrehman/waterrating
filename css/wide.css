@@ -188,16 +188,16 @@ cursor: pointer;
     transition: initial;
     border: 0;
 }
-.nav-wrapper ul.nav > li > a.menu-item.selected,
-.nav-wrapper ul.nav > li > a.menu-item.open {    
+.nav-wrapper ul.nav > li > a.is-active,
+.nav-wrapper ul.nav > li > a.open {    
 	background: #ffffff;
 	color: #004f6f;
 }
-.nav-wrapper ul.nav > li:hover > a.menu-item {
+.nav-wrapper ul.nav > li:hover > a {
 	color: #004f6f;
 }
-.nav-wrapper ul.nav > li > a.menu-item:before,
-.nav-wrapper ul.nav > li.selected > a.menu-item:before {
+.nav-wrapper ul.nav > li > a:before,
+.nav-wrapper ul.nav > li.is-active > a:before {
 	content: '';
 	background-color: #ffffff;
 	height: 5px;
@@ -211,32 +211,30 @@ cursor: pointer;
 	opacity: 0;
 	transition: opacity 200ms ease-out;
 }
-.nav-wrapper ul.nav > li:hover > a.menu-item:before,
-.nav-wrapper ul.nav > li.selected > a.menu-item:before  {
+.nav-wrapper ul.nav > li:hover > a:before,
+.nav-wrapper ul.nav > li.is-active > a:before  {
 	visibility: visible;
 	opacity: 1;
 	transition: all 200ms ease-out;
 }
-.nav-wrapper ul.nav > li.selected > a.menu-item:before {
+.nav-wrapper ul.nav > li.is-active > a:before {
 	background-color: #45b8e6;	
 	box-sizing: border-box;
 	margin:0;
 }
-.nav-wrapper ul.nav > li.selected:hover > a.menu-item {	
+.nav-wrapper ul.nav > li.is-active:hover > a.menu-item {	
 	border-color: #ffffff;
 }
 
-.nav-wrapper ul.nav > li > a.selected,
-.nav-wrapper ul.nav > li > a.selected:hover,
-.nav-wrapper ul.nav > li.selected:hover > a {
+.nav-wrapper ul.nav > li > a.is-active,
+.nav-wrapper ul.nav > li > a.is-active:hover,
+.nav-wrapper ul.nav > li.is-active:hover > a {
     background: transparent;
-	color: #ffffff;
 }
 .nav-wrapper ul.nav > li > a:active,
 .nav-wrapper ul.nav > li > a:focus,
 .nav-wrapper ul.nav > li:hover > a {
     background: transparent;
-	color: #ffffff;
 }
 .nav-wrapper ul.nav > li > a:focus {
     outline: 1px dotted #c1c1c1;
@@ -244,8 +242,8 @@ cursor: pointer;
 }
 .main-navigation ul.nav > li > a:hover, 
 .main-navigation ul.nav > li > a:focus,
-.main-navigation ul.nav > li.selected:hover > a,
-.main-navigation ul.nav > li > a.selected {
+.main-navigation ul.nav > li.is-active:hover > a,
+.main-navigation ul.nav > li > a.is-active {
     color: #004f6f;
     background: #ffffff;
 }

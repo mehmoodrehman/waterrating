@@ -1,6 +1,6 @@
-name: 'govCMS UI'
+name: 'WaterRating'
 type: theme
-description: 'A Drupal 8 theme for govCMS incorporating the DTA ui toolkit.'
+description: 'WaterRating theme based on alpha GovCMS Ui theme'
 # core: 8.x
 libraries:
   - govcmsui/global-styling
@@ -23,5 +23,5 @@ regions:
 # Information added by Drupal.org packaging script on 2017-12-21
 version: '8.x-1.0-alpha1'
 core: '8.x'
-project: 'govcms8_ui'
+project: 'waterrating'
 datestamp: 1513834690

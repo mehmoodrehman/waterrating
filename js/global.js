@@ -37,15 +37,15 @@ Date.prototype.getDayName = function() {
  *	remove double spaces and replace spaces with hyphens
  */
 function safeString(rawText) {
-    return $.trim(rawText).replace(/[^a-z0-9\s]/gi, '').replace(/\s\s+|[_\s]/g, '-').toLowerCase() || '';
+    return jQuery.trim(rawText).replace(/[^a-z0-9\s]/gi, '').replace(/\s\s+|[_\s]/g, '-').toLowerCase() || '';
 }
 
 //Edit mode variable def
-var inEditMode = ($('input[name="MSOLayout_InDesignMode"]').val() == "1") ? true : false;
+var inEditMode = (jQuery('input[name="MSOLayout_InDesignMode"]').val() == "1") ? true : false;
 
 //Element On Screen method definition
-$.fn.isOnScreen = function(){
-    var win = $(window);
+jQuery.fn.isOnScreen = function(){
+    var win = jQuery(window);
     var viewport = {
         top : win.scrollTop(),
         left : win.scrollLeft()
@@ -84,8 +84,8 @@ var WR = {
 		if(document.querySelector('#suiteBar')) {
 			document.body.classList.add("ribbon-visible");
 		} else {
-			$('#s4-workspace').attr('style','');
-			$('#s4-workspace').addClass('public-view-mode');
+			jQuery('#s4-workspace').attr('style','');
+			jQuery('#s4-workspace').addClass('public-view-mode');
 		}
 
 	},
@@ -95,9 +95,9 @@ var WR = {
 	SetPageEditOrPreviewMode: function(){
 		
 		if(inEditMode) {
-			$('.body-wrapper').addClass('edit-mode');
+			jQuery('.body-wrapper').addClass('edit-mode');
 		} else {
-			$('.body-wrapper').addClass('view-mode');
+			jQuery('.body-wrapper').addClass('view-mode');
 		}
 	},
 	
@@ -126,23 +126,23 @@ var WR = {
 	//Mobile menu toggle	
 	MobileNavExpandCollapse: function() {	
 	    //Main Mobile navigation active toggle
-	    $(".nav-mobile-link").on('click tap', function (e) {
+	    jQuery(".nav-mobile-link").on('click tap', function (e) {
 	        e.preventDefault();
-	        $('.main-navigation').toggleClass('active');
-	        $(this).toggleClass('active');
+	        jQuery('.main-navigation').toggleClass('active');
+	        jQuery(this).toggleClass('active');
 	    });
 	
 
 	    //Secondary navigation clickable
-	    $(".secondary-nav_toggle").on('click tap', function (e) {
+	    jQuery(".secondary-nav_toggle").on('click tap', function (e) {
 	        e.preventDefault();
-	        $('.secondary-nav__links').toggleClass('active');
-	        $(this).toggleClass('active');
+	        jQuery('.secondary-nav__links').toggleClass('active');
+	        jQuery(this).toggleClass('active');
 	    });
 	
 	    //add index to top level navigation for desktop css
-	    $('.main-navigation > ul > li').each(function(index){
-	        $(this).addClass('nav-item-'+ (index +1));
+	    jQuery('.main-navigation > ul > li').each(function(index){
+	        jQuery(this).addClass('nav-item-'+ (index +1));
 	    });	
 	},
 	
@@ -164,7 +164,7 @@ var WR = {
 		
 		
 	    //Load slider data from the search API
-	    $.ajax({
+	    jQuery.ajax({
 	        method: "GET",
 	        url: "/_api/search/query?"+ HS.SearchQuerySting,
 	        headers: {
@@ -180,9 +180,9 @@ var WR = {
 	    //Put all object values at top level and pass it on to build markup
 	    function flatenObjectValues(results){
 		    var sliderData = [];
-		    $.each(results,function(i,r){
+		    jQuery.each(results,function(i,r){
 		    	var tempObj = {};
-			    $.each(r.Cells.results,function(i,ra){
+			    jQuery.each(r.Cells.results,function(i,ra){
 	    	    	tempObj[ra.Key] = ra.Value;
 			    });
 			    sliderData.push(tempObj);
@@ -194,7 +194,7 @@ var WR = {
 	    function buildSliderMarkup(d) {
 	        var hsItemsHtml = '';
 	        var hsControls = '<div class="hs__controls"><button type="button" class="hs__play-pause playing"><span class="visually-hidden"><span class="action">Pause</span> slider</span></button></div>';
-	        $.each(d, function(i, row) {
+	        jQuery.each(d, function(i, row) {
 	        	var slideType = 'text';
 		        if((row.PublishingImage !== null) && (row.PublishingPageContentOWSHTML !== null)) {
 		        	slideType = 'image-text';
@@ -213,7 +213,7 @@ var WR = {
 	                "<div class='hs-content'>" + ((row.PublishingPageContentOWSHTML !== null) ? row.PublishingPageContentOWSHTML : '') + "</div>" +
 	                "</div>";
 	        });
-	        $('.tfc__home-slider').append("<div class='hs-list'>" + hsItemsHtml + "</div>" + hsControls);
+	        jQuery('.tfc__home-slider').append("<div class='hs-list'>" + hsItemsHtml + "</div>" + hsControls);
 	
 	        //Initialise the slider
 	        initSlider();
@@ -223,9 +223,9 @@ var WR = {
 	        //Initialise slick slider on newly create slider list
 	        var playTitle = 'Play';
 	        var pauseTitle = 'Pause';
-	        var $playButton = $('.hs__play-pause');
-	        var $hs = $('.hs-list');
-	        var $hsControls = $('.hs__controls');
+	        var $playButton = jQuery('.hs__play-pause');
+	        var $hs = jQuery('.hs-list');
+	        var $hsControls = jQuery('.hs__controls');
 	
 	        //Pause slider
 	        function pause($element) {
@@ -250,11 +250,11 @@ var WR = {
 	
 			//Actions after slider is initiated
 	        $hs.on('init', function(){
-	        	$hsControls.append($('.slick-dots'));
+	        	$hsControls.append(jQuery('.slick-dots'));
 	        	
 	        	//Hide controls when there is one slide
-	        	if($('.slick-dots li').length < 2){
-					$('.hs__controls').hide();
+	        	if(jQuery('.slick-dots li').length < 2){
+					jQuery('.hs__controls').hide();
 				}
 	        });
 	        
@@ -271,7 +271,7 @@ var WR = {
 	            cssEase: 'cubic-bezier(0.950, 0.050, 0.795, 0.035)',
 	            init: function() {
 			        //Move controlls
-			        $hsControls.append($(this.$dots[0]));
+			        $hsControls.append(jQuery(this.$dots[0]));
 			   }
 	        });
 	    }
@@ -279,9 +279,9 @@ var WR = {
 	
 	//Add image alt as image caption when "ms-rteStyle-image-right" class is added to image
 	AddImageCaption: function(){
-		var $captionImages = $("img.ms-rteStyle-image-right[alt!='']");
-		$.each($captionImages, function(){
-			var $img = $(this);
+		var $captionImages = jQuery("img.ms-rteStyle-image-right[alt!='']");
+		jQuery.each($captionImages, function(){
+			var $img = jQuery(this);
 			//If image is loaded in cache add width on container	
 			var imgWidth = ($img.width() !== 0) ? ('width:'+ Math.ceil($img.width()) +'px') : '';
 			$img.before("<div class='ms-rteStyle-image-right' style='"+ imgWidth +"'><span>"+ $img.attr('alt') +"</span></div>");
@@ -289,7 +289,7 @@ var WR = {
 	
 			//Add width on container after load if it doesn't exists in cache
 			$img.on('load',function() {		
-				$(this).closest('div.ms-rteStyle-image-right').width(Math.ceil($(this).width()));
+				jQuery(this).closest('div.ms-rteStyle-image-right').width(Math.ceil(jQuery(this).width()));
 		    });   
 		});
 	},
@@ -312,9 +312,9 @@ var WR = {
 		//Move html on page based on screen size changes
 		function moveHtmlOnPage(screenSizeMatched) {
 			if(!screenSizeMatched) {
-				$('#main-navigation').addClass('mobile');
+				jQuery('#main-navigation').addClass('mobile');
 			} else {				
-				$('#main-navigation').removeClass('mobile');
+				jQuery('#main-navigation').removeClass('mobile');
 
 			}		
 		}
@@ -322,12 +322,12 @@ var WR = {
 	
 	//MegaMenu builder
 	MegaMenu: function(){
-		var $megaMenuTrigerLinks = $('#main-navigation li.dynamic-children');
-		$('#main-navigation li,#main-navigation li a').removeClass('dynamic-children');
+		var $megaMenuTrigerLinks = jQuery('#main-navigation li.dynamic-children');
+		jQuery('#main-navigation li,#main-navigation li a').removeClass('dynamic-children');
 		var megaMenuWraper = "<div class='megamenu'>{0}</div>";
 		//Loop through all top level menu links
 		$megaMenuTrigerLinks.each(function() {
-		    $sourceLink = $(this);
+		    $sourceLink = jQuery(this);
 		    $sourceHref = $sourceLink.find('> a.menu-item');
 		    var megamenu__srcArr = $sourceHref.attr('title') ? $sourceHref.attr('title').split("|") : "";	    
 	
@@ -347,7 +347,7 @@ var WR = {
 		    $sourceSubLinks = $sourceLink.find('ul.dynamic');
 		    //Add description of sub links underneath
 		    $sourceSubLinks.find('> li').each(function() {
-			    var $srcSub = $(this).find('a.menu-item');
+			    var $srcSub = jQuery(this).find('a.menu-item');
 		   	    var submenu__srcArr = $srcSub.attr('title') ? $srcSub.attr('title').split("|") : "";	    
 	
 			    //if Source string has | then use the part before | as title
@@ -358,11 +358,11 @@ var WR = {
 					var submenu__desc = $srcSub.attr('title') || "";
 			    }
 			    
-		        $(this).find('a.menu-item').attr({
+		        jQuery(this).find('a.menu-item').attr({
 		            'class': '',
 		            'title': ''
 		        });
-		        $(this).append("<p class='submenu__desc'>" + submenu__desc + "</p>");
+		        jQuery(this).append("<p class='submenu__desc'>" + submenu__desc + "</p>");
 		
 		    });
 		    //Insert sub links as megamenu in the main link wrapper
@@ -372,43 +372,43 @@ var WR = {
 		});
 		
 		//Initialise megamenu on Top row
-		$("#main-navigation .ms-core-listMenu-horizontalBox").accessibleMegaMenu({	
+		jQuery("#main-navigation .ms-core-listMenu-horizontalBox").accessibleMegaMenu({	
 			openClass: "open",
 			openDelay: 200		
 		});
 
 		//Mobile navigation click		
-		$('.main-navigation.mobile a.menu-item').on('click tap', function (e) {
+		jQuery('.main-navigation.mobile a.menu-item').on('click tap', function (e) {
 	        e.preventDefault();
-	       	window.location = $(this).attr('href');
+	       	window.location = jQuery(this).attr('href');
 	    });
 	},
 	
 	//Secondary Naviation mobile controls
 	SecondaryNavigationMobile: function(){
 		//expand collapse toggle
-	    $(".secondary-nav_toggle").on('click tap', function (e) {
+	    jQuery(".secondary-nav_toggle").on('click tap', function (e) {
 	        e.preventDefault();
-	        $('#DeltaPlaceHolderLeftNavBar').slideToggle().toggleClass('active');
-	        $(".secondary-nav_toggle").toggleClass('active');
+	        jQuery('#DeltaPlaceHolderLeftNavBar').slideToggle().toggleClass('active');
+	        jQuery(".secondary-nav_toggle").toggleClass('active');
 	    });
 	    
 	    //Secondary navigation back to parent link
-		if($('.secondary-nav__section-title').length && $('.breadcrumb a:eq(-2)').length) {
-			$('.secondary-nav__section-title').text($('.breadcrumb a:eq(-2)').text()).attr('href',$('.breadcrumb a:eq(-2)').attr('href'));
+		if(jQuery('.secondary-nav__section-title').length && jQuery('.breadcrumb a:eq(-2)').length) {
+			jQuery('.secondary-nav__section-title').text(jQuery('.breadcrumb a:eq(-2)').text()).attr('href',jQuery('.breadcrumb a:eq(-2)').attr('href'));
 		}
 		
 		//Fix SP bug: Adding selected class to dynamicly expanded current link
-		$('.secondary-nav-links a.dynamic').each(function(){
-			if($(this).attr('href') === window.location.pathname) {
-				$(this).addClass('selected');
+		jQuery('.secondary-nav-links a.dynamic').each(function(){
+			if(jQuery(this).attr('href') === window.location.pathname) {
+				jQuery(this).addClass('selected');
 				return false;
 			}
 		});
 	
 		//Remove title attribute	
-		$('.secondary-nav a[title]').each(function(){
-			$(this).attr('title','');
+		jQuery('.secondary-nav a[title]').each(function(){
+			jQuery(this).attr('title','');
 		});	
 	},
 	
@@ -436,37 +436,37 @@ var WR = {
 				'<li class="label"></li>'+
 			'</ul>';
 		//Remove animated class if it is stored withmarkup
-		$('.sec-stats').removeClass('animated');
+		jQuery('.sec-stats').removeClass('animated');
 		
 		//Initialise animation when container is in view
-		if($('.sec-stats').length !== 0) {
+		if(jQuery('.sec-stats').length !== 0) {
 			//Place people icons in the people container
-			$('.stat.people').append(peopleAnimateHtml);
+			jQuery('.stat.people').append(peopleAnimateHtml);
 			
 			//Place products icons in the products container
-			$('.stat.products').append(productsAnimateHtml);
+			jQuery('.stat.products').append(productsAnimateHtml);
 		
 			//For autoring view
-			$('#s4-workspace').scroll(function() {
+			jQuery('#s4-workspace').scroll(function() {
 				initStatsAnimation();
 			});
 			
 			//For public view
-			$(window).scroll(function() {
+			jQuery(window).scroll(function() {
 				initStatsAnimation();
 			});
 			
 			//If container is in view when page is loaded trigger animation
-			if($('.sec-stats').isOnScreen()) {
+			if(jQuery('.sec-stats').isOnScreen()) {
 				initStatsAnimation();
 			}
 		}
 		
 		function initStatsAnimation(){
-		    if ($('.sec-stats').isOnScreen() && !$('.sec-stats').hasClass('animated')) {
-		        $('.sec-stats').addClass('animated');
-		        var $peopleCount = $('.people-count');
-		        var $productCount = $('.product-count');
+		    if (jQuery('.sec-stats').isOnScreen() && !jQuery('.sec-stats').hasClass('animated')) {
+		        jQuery('.sec-stats').addClass('animated');
+		        var $peopleCount = jQuery('.people-count');
+		        var $productCount = jQuery('.product-count');
 		        var startDelay = 800;
 		
 		        var peopleCountEnd = $peopleCount.text();
@@ -487,8 +487,8 @@ var WR = {
 		                step: function(now) {
 		                    var currNum = Math.ceil(now);
 		                    $peopleCount.text(currNum);
-		                    $('.stats-people li:nth-child(' + currNum + ')').addClass('alive');
-		                    $('.stats-products li:nth-child(' + currNum + ')').addClass('alive');
+		                    jQuery('.stats-people li:nth-child(' + currNum + ')').addClass('alive');
+		                    jQuery('.stats-products li:nth-child(' + currNum + ')').addClass('alive');
 		                }
 		            });
 		
@@ -513,16 +513,16 @@ var WR = {
 	
 	//Convert last reviewed date into human readable format
 	FormatLastReviewedDate: function(){
-		if(!$('.last-reviewed__value').find('.ms-formfieldvaluecontainer').length && $('.last-reviewed__value').text().trim().length ) {
+		if(!jQuery('.last-reviewed__value').find('.ms-formfieldvaluecontainer').length && jQuery('.last-reviewed__value').text().trim().length ) {
 	
-			var articleDateString = $('.last-reviewed__value').text().trim().split('/');
+			var articleDateString = jQuery('.last-reviewed__value').text().trim().split('/');
 			var $articleDate = new Date(articleDateString[1]+'/'+articleDateString[0]+'/'+articleDateString[2]);
 			var newDate = $articleDate.getDate() + ' ' + $articleDate.getMonthName() + ' ' + $articleDate.getFullYear();
 			if(newDate.indexOf('undefined') == -1) {
-				$('.last-reviewed__value').text(newDate);
+				jQuery('.last-reviewed__value').text(newDate);
 			}
-		} else if($('.last-reviewed__value').text().trim().length == 0) {
-			$('.last-reviewed').hide();
+		} else if(jQuery('.last-reviewed__value').text().trim().length == 0) {
+			jQuery('.last-reviewed').hide();
 		}
 	},
 	
@@ -532,8 +532,8 @@ var WR = {
 		var scrollTopHideOnPages = ["/", "/Pages/home.aspx", "/Pages/default.aspx", "/search", "/Pages/search.aspx"];
 	    var scrollTop = "<div class='scrolltop'></div>";
 	    var scrollTopInner = "<a href='javascript:void(0)' class='scroll icon'><span class='visually-hidden'>Back to top</span></a>";
-	    if (($('.scrolltop').length === 0) && (scrollTopHideOnPages.indexOf(window.location.pathname) === -1)) {
-	        $('body').append(scrollTop);
+	    if ((jQuery('.scrolltop').length === 0) && (scrollTopHideOnPages.indexOf(window.location.pathname) === -1)) {
+	        jQuery('body').append(scrollTop);
 	    }
 	
 	    //Define selector for public and authoring mode
@@ -545,20 +545,20 @@ var WR = {
 	        var bodyElementToScroll = 'html, body';    
 	    }
 	
-	    $(bodyScrollListenElement).scroll(function() {
-	        if ($(this).scrollTop() > 800) {
-	            $('.scrolltop:hidden').stop(true, true).fadeIn();
-	            if($('.scrolltop .scroll ').length === 0){
-	            	$('.scrolltop').append(scrollTopInner); 
+	    jQuery(bodyScrollListenElement).scroll(function() {
+	        if (jQuery(this).scrollTop() > 800) {
+	            jQuery('.scrolltop:hidden').stop(true, true).fadeIn();
+	            if(jQuery('.scrolltop .scroll ').length === 0){
+	            	jQuery('.scrolltop').append(scrollTopInner); 
 	            }
 	        } else {
-	            $('.scrolltop').stop(true, true).fadeOut();
+	            jQuery('.scrolltop').stop(true, true).fadeOut();
 	        }
 	    });
 	
-	    $(function() {
-	        $("body").on('click tap','a.scroll',function() {
-	            $(bodyElementToScroll).animate({
+	    jQuery(function() {
+	        jQuery("body").on('click tap','a.scroll',function() {
+	            jQuery(bodyElementToScroll).animate({
 	                scrollTop: 0
 	            }, "1000");
 	            return false
@@ -583,7 +583,7 @@ var WR = {
 			'</div>';
 			
 		//Add the form to relevent section of the page	
-		$('.wels-login-form').html(welsLoginForm);
+		jQuery('.wels-login-form').html(welsLoginForm);
 		
 		
 		//Wells Product registration database login form
@@ -607,15 +607,15 @@ var WR = {
 		    form.submit();
 		}
 		
-		$('body').on('click','.wels-login-button',function() {
-		    var username = $('#wels-username').val();
-		    var password = $('#wels-password').val();
+		jQuery('body').on('click','.wels-login-button',function() {
+		    var username = jQuery('#wels-username').val();
+		    var password = jQuery('#wels-password').val();
 		    var wellsLoginForm = 'http://wels.agriculture.gov.au/wels-public/j_spring_security_check';
-		    $('.wells-login-error').remove();
+		    jQuery('.wells-login-error').remove();
 		    window.location = "http://wels.agriculture.gov.au/wels-public/action/login";
 		    /*
 		    if (username.trim().length < 1 || password.trim().length < 1) {
-		        $('.wels-login-button').before('<p class="wells-login-error error">Username and password are required.</p>');
+		        jQuery('.wels-login-button').before('<p class="wells-login-error error">Username and password are required.</p>');
 		    } else {
 		    	if(window.mobileAndTabletcheck()) {
 		    		window.location = "http://wels.agriculture.gov.au/wels-public/action/login";
@@ -649,11 +649,11 @@ var WR = {
 			'</div>'+
 			'<input type="button" value="Search" name="product-search__btn"/>';
 		
-		$('.ps__form').html(psForm);
+		jQuery('.ps__form').html(psForm);
 		
 		//Submit product search
 		var productSearchUrl = "http://wels.agriculture.gov.au/wels-public/action/search-product-load?src=menu&code=";
-		var $prdSrhFrm = $('.ps__form');
+		var $prdSrhFrm = jQuery('.ps__form');
 		$prdSrhFrm.find('input[type="button"]').click(function() {
 		    var wellsProduct = $prdSrhFrm.find('select').val();
 		    if (wellsProduct.indexOf('Select') === -1 && wellsProduct.trim().length > 0) {
@@ -663,7 +663,7 @@ var WR = {
 		    }
 		});
 		$prdSrhFrm.find('select').change(function() {
-		    if ($(this).val().indexOf('Select') === -1) {
+		    if (jQuery(this).val().indexOf('Select') === -1) {
 		        $prdSrhFrm.removeClass('error');
 		    }
 		});
@@ -673,23 +673,23 @@ var WR = {
 	//Manage right columns in edit and preview mode
 	ManageRightColumn: function(){
 		if(inEditMode) {
-			$('.content').removeClass('full-width');
-			$('.right-col').show();		
+			jQuery('.content').removeClass('full-width');
+			jQuery('.right-col').show();		
 		} else {
-			var relatedContOne = $('.related-content.one div[id$="ControlWrapper_RichHtmlField"]').text().trim().length;
-			var relatedContTwo = $('.related-content.two div[id$="ControlWrapper_RichHtmlField"]').text().trim().length;
+			var relatedContOne = jQuery('.related-content.one div[id$="ControlWrapper_RichHtmlField"]').text().trim().length;
+			var relatedContTwo = jQuery('.related-content.two div[id$="ControlWrapper_RichHtmlField"]').text().trim().length;
 		
 			//Display right column
 			if(relatedContOne > 2 || relatedContTwo > 2) {
-				$('.content').removeClass('full-width');
-				$('.right-col').show();
+				jQuery('.content').removeClass('full-width');
+				jQuery('.right-col').show();
 			}
 			
 			if(relatedContOne < 3) {
-				$('.related-content.one').remove();
+				jQuery('.related-content.one').remove();
 			}
 			if(relatedContTwo < 3) {
-				$('.related-content.two').remove();
+				jQuery('.related-content.two').remove();
 			}
 		}
 	},
@@ -700,16 +700,16 @@ var WR = {
 			var currentAnchor = document.location.hash;
 			//escape selector
 			currentAnchor = currentAnchor.replace(/([;&,\.\+\*\~':"\!\^#$%@\[\]\(\)=>\|])/g, '\\$1');
-			$(currentAnchor).attr('tabindex', -1).on('blur focusout', function () {
-				$(this).removeAttr('tabindex');
+			jQuery(currentAnchor).attr('tabindex', -1).on('blur focusout', function () {
+				jQuery(this).removeAttr('tabindex');
 			}).focus();
 		}
 		
-		$(window).on('hashchange', function() {
+		jQuery(window).on('hashchange', function() {
 			var hash = "#"+window.location.hash.replace(/^#/,'');
 			if (hash!="#" && hash.indexOf('=') == -1) {
-				$(hash).attr('tabindex', -1).on('blur focusout', function () {
-					$(this).removeAttr('tabindex');
+				jQuery(hash).attr('tabindex', -1).on('blur focusout', function () {
+					jQuery(this).removeAttr('tabindex');
 				}).focus();
 			}
 		});
@@ -718,30 +718,30 @@ var WR = {
 	//Generic Collapsible
 	Collapsible: function(){
 		//convert name attribute into hash value for link
-		$(".page-content a[name^='#']").each(function(){
-			$(this).attr("href",($(this).attr("href")+$(this).attr("name")))
+		jQuery(".page-content a[name^='#']").each(function(){
+			jQuery(this).attr("href",(jQuery(this).attr("href")+jQuery(this).attr("name")))
 		});
 		var lastActionedLink;
-		$('.clp-heading').each(function(index) {
+		jQuery('.clp-heading').each(function(index) {
 			//insert link inside heading
-			$(this).html("<a>"+ $(this).text() +"</a>");
-		    collapsibleAction($(this).find("a"), $(this).next(), index);
+			jQuery(this).html("<a>"+ jQuery(this).text() +"</a>");
+		    collapsibleAction(jQuery(this).find("a"), jQuery(this).next(), index);
 		});
 		
 		//Expand hash for associated collapsible content on page load
-	    if($('.clp-heading').length && window.location.hash.length > 0 && window.location.hash.match(/([$.?])/g) === null) {
+	    if(jQuery('.clp-heading').length && window.location.hash.length > 0 && window.location.hash.match(/([$.?])/g) === null) {
 	        var pageLoadLinkHash = window.location.hash.substring(1);
 	        
-	        var $activeFaqLink = $("[data-target*='"+ pageLoadLinkHash +"']");
+	        var $activeFaqLink = jQuery("[data-target*='"+ pageLoadLinkHash +"']");
 	        if($activeFaqLink.length) {
 				$activeFaqLink.click();
-				$('html, body, #s4-bodyContainer, #s4-workspace').animate({scrollTop: ($activeFaqLink.offset().top - 80)}, 500);
+				jQuery('html, body, #s4-bodyContainer, #s4-workspace').animate({scrollTop: ($activeFaqLink.offset().top - 80)}, 500);
 			}
 		}
 		
-		$('body').on('click', '.expand-all', function(e) {
+		jQuery('body').on('click', '.expand-all', function(e) {
 		    e.preventDefault();
-		    expandCollapse($(this), '.clp-heading > a', '.clp-content');	
+		    expandCollapse(jQuery(this), '.clp-heading > a', '.clp-content');	
 		});
 		
 		//Project results collapsible
@@ -765,7 +765,7 @@ var WR = {
 		    $actionLink.on('click', function(e) {
 		        e.preventDefault();			
 				$actionLink.toggleClass('active');
-				window.location.hash = $(this).attr('data-target');
+				window.location.hash = jQuery(this).attr('data-target');
 		        if ($targetContent.hasClass('expanded')) {
 		            $targetContent.slideUp(300).removeClass('expanded');
 		            $actionLink.attr('aria-expanded', 'false');
@@ -781,7 +781,7 @@ var WR = {
 		                'aria-hidden': 'false'
 		            });
 		        }
-	            lastActionedLink = $(this).attr('id');		        
+	            lastActionedLink = jQuery(this).attr('id');		        
 		    });
 		}//collapsibleAction
 		
@@ -800,17 +800,17 @@ var WR = {
 		}
 		
 		//only trigger this event for faq page content anchore tag links
-	    if($('.collapsible').length){
-	        $(window).on('hashchange',function(event){
+	    if(jQuery('.collapsible').length){
+	        jQuery(window).on('hashchange',function(event){
 			    var pageLoadLinkHash = window.location.hash.substring(1);
-		        var $activeFaqLink = $("[data-target='"+ pageLoadLinkHash +"']"); 
+		        var $activeFaqLink = jQuery("[data-target='"+ pageLoadLinkHash +"']"); 
 		        //Do not trigger hash change if heading link is triggered
 		        if(!($activeFaqLink.attr('id') == lastActionedLink)) {
 					if($activeFaqLink.length > 0 && !$activeFaqLink.hasClass('active')) {
 						$activeFaqLink.click();
-						$('html, body').animate({scrollTop: $activeFaqLink.offset().top}, 500);
+						jQuery('html, body').animate({scrollTop: $activeFaqLink.offset().top}, 500);
 					} else if($activeFaqLink.parent().hasClass('expanded')) {
-						$('html, body').animate({scrollTop: $activeFaqLink.offset().top}, 500);
+						jQuery('html, body').animate({scrollTop: $activeFaqLink.offset().top}, 500);
 					}
 				}
 			});
@@ -822,7 +822,7 @@ var WR = {
 	    var FB = {};    
 	    FB.FeedbackPageName = "Feedback.aspx";
 	    FB.FormPageUrl = "/Pages/" + FB.FeedbackPageName + "?IsDlg=1&feedbackWidget=1";
-	    FB.InsertBefore = $('footer');
+	    FB.InsertBefore = jQuery('footer');
 	    FB.PhoneUsUrl = "/about/contact";
 	    FB.InquiryUsUrl = "/about/contact";
 	    FB.HideOnPages = ["/", "/Pages/home.aspx", "/Pages/default.aspx", "/search", "/Pages/search.aspx"];
@@ -864,19 +864,19 @@ var WR = {
 	        FB.InsertBefore.before(FB.IframeHtml);
 	    }
 	
-	    FB.Msgs.ServerResponse = $('.page-content #messages').html() || '';
-	    FB.Iframe = $('#feedbackWidget', parent.document);
+	    FB.Msgs.ServerResponse = jQuery('.page-content #messages').html() || '';
+	    FB.Iframe = jQuery('#feedbackWidget', parent.document);
 	
 		//Add custom form control when iframe is loaded
 	    if ((FB.Path.indexOf(FB.FeedbackPageName) !== -1) && (window.location != window.parent.location)) {
 	        //insert page feedback webpart markup
-	        $('.page-content').append("<div class='page-feedback-wrapper'>" + FB.FormHtml + "</div>");
-	        FB.PageTitle = $.trim($('.content h1:first', parent.document.body).text()) || _spPageContextInfo.pageItemId;
+	        jQuery('.page-content').append("<div class='page-feedback-wrapper'>" + FB.FormHtml + "</div>");
+	        FB.PageTitle = jQuery.trim(jQuery('.content h1:first', parent.document.body).text()) || _spPageContextInfo.pageItemId;
 	        FB.PageUrl = (window.location != window.parent.location) ? window.parent.location.toString() : '';
 	        FB.PageUrl = FB.PageUrl ? FB.PageUrl.split('#')[0] : FB.PageUrl;
-	        $('input[name$="_PageTitle"]').val(FB.PageTitle);
-	        $('input[name$="_PageUrl"]').val(FB.PageUrl);
-	        $('#fbCpt').prepend($('.g-recaptcha'));
+	        jQuery('input[name$="_PageTitle"]').val(FB.PageTitle);
+	        jQuery('input[name$="_PageUrl"]').val(FB.PageUrl);
+	        jQuery('#fbCpt').prepend(jQuery('.g-recaptcha'));
 	    }
 	
 	    //Form submitted with errors
@@ -884,30 +884,30 @@ var WR = {
 	        FB.Iframe.animate({
 	            height: "600"
 	        }, 300);
-	        $('#DivYesNo').hide();
-	        $('#DivWhy').show();
-	        $('#txtWhy').val($('textarea[name$="_PageFeedback').val());
-	        $('.page-feedback__captcha').append(String.format(FB.Msgs.Body, 'error', FB.Msgs.RobotError));
+	        jQuery('#DivYesNo').hide();
+	        jQuery('#DivWhy').show();
+	        jQuery('#txtWhy').val(jQuery('textarea[name$="_PageFeedback').val());
+	        jQuery('.page-feedback__captcha').append(String.format(FB.Msgs.Body, 'error', FB.Msgs.RobotError));
 	        window.top.location.hash = "feedbackWidget";
 	    } else if (FB.Msgs.ServerResponse.indexOf('submitted successfully') != -1) {
 	        FB.Iframe.animate({
 	            height: "50"
 	        }, 300);
-	        $('#DivYesNo').hide();
-	        $('.page-feedback').prepend(String.format(FB.Msgs.Body, 'success', FB.Msgs.Success));
+	        jQuery('#DivYesNo').hide();
+	        jQuery('.page-feedback').prepend(String.format(FB.Msgs.Body, 'success', FB.Msgs.Success));
 	    }
 	
 	    //Feedback yes clicked
-	    $('body').on('click', '#DivYesNo input[type="button"]', function() {
+	    jQuery('body').on('click', '#DivYesNo input[type="button"]', function() {
 	        FB.Iframe.animate({
 	            height: "600"
 	        }, 300);
 	        window.top.location.hash = "";
-	        var YesNoFeedback = $(this).val() || 'Null';
+	        var YesNoFeedback = jQuery(this).val() || 'Null';
 	
-	        $('select[name$="_PageHelpful"]').val(YesNoFeedback);
-	        $('#DivYesNo').hide();
-	        $('#DivWhy').show();
+	        jQuery('select[name$="_PageHelpful"]').val(YesNoFeedback);
+	        jQuery('#DivYesNo').hide();
+	        jQuery('#DivWhy').show();
 	        window.top.location.hash = "feedbackWidget";
 	
 	        //Send event to Google analytics server		
@@ -920,9 +920,9 @@ var WR = {
 	    });
 	
 	    //Submit the SP form
-	    $('body').on('click', '#BtnSbt', function() {
-	        $('textarea[name$="_PageFeedback"]').val($('#txtWhy').val());
-	        $('.submitButton').click();
+	    jQuery('body').on('click', '#BtnSbt', function() {
+	        jQuery('textarea[name$="_PageFeedback"]').val(jQuery('#txtWhy').val());
+	        jQuery('.submitButton').click();
 	        FB.Iframe.animate({
 	            height: "50"
 	        }, 300);
@@ -930,13 +930,13 @@ var WR = {
 	    });
 	
 	    //Skip the SP form submission
-	    $('body').on('click', '#BtnSkp', function() {
-	        $('#DivYesNo').hide();
+	    jQuery('body').on('click', '#BtnSkp', function() {
+	        jQuery('#DivYesNo').hide();
 	        FB.Iframe.animate({
 	            height: "50"
 	        }, 300);
 	        window.top.location.hash = "feedbackWidget";
-	        $('.page-feedback').prepend(String.format(FB.Msgs.Body, 'success', FB.Msgs.Success));
+	        jQuery('.page-feedback').prepend(String.format(FB.Msgs.Body, 'success', FB.Msgs.Success));
 	    });	
 	},
 	
@@ -952,14 +952,14 @@ var WR = {
 		}
 		
 		//Call search post on submit click 
-		$('.global-search-form button').on('click tap', function() {
-		    postSearchForm($(this).parent());
+		jQuery('.global-search-form button').on('click tap', function() {
+		    postSearchForm(jQuery(this).parent());
 		});
 		
 		//Call search post on hitting entered
-		$('.global-search-form input[type="text"]').on('keydown', function(event) {
-		    if (event.keyCode == 13 && $(this).val().length) {
-		        postSearchForm($(this).parent());
+		jQuery('.global-search-form input[type="text"]').on('keydown', function(event) {
+		    if (event.keyCode == 13 && jQuery(this).val().length) {
+		        postSearchForm(jQuery(this).parent());
 		        return false;
 		    }
 		});
@@ -1004,7 +1004,7 @@ WR.WasThisPageHelpFul();
 	Execute on jQuery ready
 ===================================================================================================
 */
-(function($){
+(function(jQuery){
 	if(parentWindow) {
 		WR.MobileNavExpandCollapse();
 		WR.AddImageCaption();
@@ -1021,7 +1021,7 @@ WR.WasThisPageHelpFul();
 		}
 		
 		//Load carousel on home page only
-		if($('.tfc__home-slider').length && !inEditMode) {
+		if(jQuery('.tfc__home-slider').length && !inEditMode) {
 			WR.HomeCarousel();
 		}
 	}//ParentWindow

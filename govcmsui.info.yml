@@ -3,7 +3,7 @@ type: theme
 description: 'WaterRating theme based on alpha GovCMS Ui theme'
 # core: 8.x
 libraries:
-  - govcmsui/global-styling
+  - waterrating/global-styling
 regions:
   nav_secondary: 'Secondary nav'
   header: 'Header'
@@ -21,7 +21,7 @@ regions:
   jumbo_footer_4: 'Jumbo footer 4'
   footer: 'Footer'
 # Information added by Drupal.org packaging script on 2017-12-21
-version: '8.x-1.0-alpha1'
+version: '0.1'
 core: '8.x'
 project: 'waterrating'
-datestamp: 1513834690
+datestamp: 1513834691

@@ -4,9 +4,9 @@ dependencies:
   module:
     - help
   theme:
-    - govcmsui
+    - waterrating
 id:              help
-theme:           govcmsui
+theme:           waterrating
 region:          help
 weight:          0
 provider:        null

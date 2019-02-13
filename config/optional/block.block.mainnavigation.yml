@@ -6,9 +6,9 @@ dependencies:
   module:
     - system
   theme:
-    - govcmsui
+    - waterrating
 id:              mainnavigation
-theme:           govcmsui
+theme:           waterrating
 region:          nav
 weight:          0
 provider:        null

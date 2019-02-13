@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - govcmsui
+    - waterrating
 id:                sitebranding
-theme:             govcmsui
+theme:             waterrating
 region:            header
 weight:            -1
 provider:          null

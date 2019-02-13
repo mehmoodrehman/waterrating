@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - govcmsui
+    - waterrating
 id:              breadcrumbs
-theme:           govcmsui
+theme:           waterrating
 region:          breadcrumb
 weight:          0
 provider:        null

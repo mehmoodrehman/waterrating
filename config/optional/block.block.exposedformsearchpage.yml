@@ -6,9 +6,9 @@ dependencies:
   module:
     - views
   theme:
-    - govcmsui
+    - waterrating
 id:              exposedformsearchpage
-theme:           govcmsui
+theme:           waterrating
 region:          header
 weight:          0
 provider:        null

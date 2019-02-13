@@ -2,9 +2,9 @@ langcode:        en
 status:          true
 dependencies:
   theme:
-    - govcmsui
+    - waterrating
 id:              tabs
-theme:           govcmsui
+theme:           waterrating
 region:          content
 weight:          -3
 provider:        null

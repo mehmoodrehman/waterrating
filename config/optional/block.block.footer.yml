@@ -6,9 +6,9 @@ dependencies:
   module:
     - system
   theme:
-    - govcmsui
+    - waterrating
 id:              footer
-theme:           govcmsui
+theme:           waterrating
 region:          footer
 weight:          0
 provider:        null

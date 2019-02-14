@@ -2058,7 +2058,7 @@ a.secondary-nav__section-title:hover:before {
 }
 .ms-rteStyle-highlightbox a {
 	color: #007dae;
-	text-decoratiom;
+	text-decoration: none;
 }
 .ms-rteStyle-highlightbox a:hover,
 .ms-rteStyle-highlightbox a:focus {

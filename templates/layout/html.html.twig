@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html{{ html_attributes }}>
-<head>
-  <head-placeholder token="{{ placeholder_token }}">
-  <title>{{ head_title|safe_join(' | ') }}</title>
-  <css-placeholder token="{{ placeholder_token }}">
-  <js-placeholder token="{{ placeholder_token }}">
-</head>
-{%
-    set body_classes = [
-      not root_path ? 'home-layout' : 'content-layout path-' ~ root_path|clean_class,
-    ]
-  %}
+  <head>
+    <head-placeholder token="{{ placeholder_token }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
+  </head>
+    {%
+      set body_classes = [
+        not root_path ? 'home-layout' : 'content-layout path-' ~ root_path|clean_class,
+      ]
+    %}
 
-<body{{ attributes }} {{ attributes.addClass(body_classes) }}>
-  {#
-    Keyboard navigation/accessibility link to main content section in
-    page.html.twig.
-  #}
-  
-  <div class="body-wrapper view-mode">
-  
-    <div id="page-wrapper" class="page-wrapper">
-
-      {{ page_top }}
-      {{ page }}
-      {{ page_bottom }}
-    <js-bottom-placeholder token="{{ placeholder_token }}">
+  <body{{ attributes }}>
+    {#
+      Keyboard navigation/accessibility link to main content section in
+      page.html.twig.
+    #}
+    <div {{ attributes.addClass(body_classes) }}>
+      <div class="body-wrapper view-mode" >    
+        <div id="page-wrapper" class="page-wrapper">
+          {{ page_top }}
+          {{ page }}
+          {{ page_bottom }}
+        <js-bottom-placeholder token="{{ placeholder_token }}">
+        </div>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>

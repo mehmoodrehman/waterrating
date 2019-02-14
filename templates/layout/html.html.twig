@@ -7,7 +7,7 @@
     <js-placeholder token="{{ placeholder_token }}">
   </head>
     {%
-      set body_classes = [
+      set layout_classes = [
         not root_path ? 'home-layout' : 'content-layout path-' ~ root_path|clean_class,
       ]
     %}
@@ -17,7 +17,7 @@
       Keyboard navigation/accessibility link to main content section in
       page.html.twig.
     #}
-    <div {{ attributes.addClass(body_classes) }}>
+    <div {{ attributes.addClass(layout_classes) }}>
       <div class="body-wrapper view-mode" >    
         <div id="page-wrapper" class="page-wrapper">
           {{ page_top }}

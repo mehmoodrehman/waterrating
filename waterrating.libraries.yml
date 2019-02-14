@@ -2,6 +2,7 @@ global-styling:
   version: 1.x
   css:
     theme:
+        css/fonts.css: {}
         css/global.css: {}
         css/medium.css: { media: screen and (min-width: 768px) }
         css/wide.css: { media: screen and (min-width: 1025px) }

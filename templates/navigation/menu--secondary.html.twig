@@ -35,7 +35,12 @@
       <ul {{ attributes.addClass('level' ~ (menu_level + 1)) }}>
     {% endif %}
     {% for item in items %}
-    <span>{{ path('<current>') }} - {{ item.url }}</span>
+    
+    {{ path('<current>') }} == {{ item.url }}
+{% if {{ path('<current>') }} == {{ item.url }} %}
+Same path     {{ path('<current>') }} == {{ item.url }}
+    {% endif %}
+
 
       <li{{ item.attributes }}>
         {{ link(item.title, item.url) }}

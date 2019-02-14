@@ -8,7 +8,7 @@
 </head>
 {%
     set body_classes = [
-      not root_path ? 'frontpage' : 'content path-' ~ root_path|clean_class,
+      not root_path ? 'home-layout' : 'content-layout path-' ~ root_path|clean_class,
     ]
   %}
 

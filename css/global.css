@@ -2148,8 +2148,7 @@ div.ms-rteStyle-image-right {
 .right-col h2:after {
 	display: none;
 }
-.right-col .ms-WPBody {
-}
+
 .right-col ul.dfwp-list {
     list-style: none;
     padding: 0;
@@ -2852,6 +2851,7 @@ footer {
 
 
 /* Site info col */
+/*
 .footer-col.site-info {
 
 }
@@ -2861,7 +2861,7 @@ footer {
 .footer__water-label-img {
 	display: none;
 }
-
+*/
 
 
 /*

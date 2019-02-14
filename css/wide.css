@@ -597,7 +597,7 @@ div.sec-product-search-buy-efficient {
 .lt-ie9 .lineage-wrapper {
 	max-width: 1170px;
 }
-.lineage {
+.breadcrumb {
 	display: block;
 	padding: 0;
 	margin: 0 auto;
@@ -605,11 +605,12 @@ div.sec-product-search-buy-efficient {
 	list-style: none;
 	color: #231f20;
 }
-.lineage li {
+.breadcrumb li {
 	display: inline-block;
 	padding-right: 20px;
+	position: relative;
 }
-.lineage li:after {
+.breadcrumb li:after {
 	text-decoration: none;
 	position: absolute;
 	content: '/';
@@ -618,11 +619,13 @@ div.sec-product-search-buy-efficient {
 	margin: 0 .3em 0 .6em;
 	display: inline;
 	color: #231f20;
+	top: 0;
+	right: 0;
 }
-.lineage li:last-child:after {
+.breadcrumb li:last-child:after {
 	display: none;
 }
-.lineage a {
+.breadcrumb a {
 	position: relative;
 	display: inline-block;
 	color: #007dae;
@@ -631,16 +634,16 @@ div.sec-product-search-buy-efficient {
 	font-size: 1rem;
 	font-weight: normal;
 }
-.lineage a:hover,
-.lineage a:focus,
-.lineage a:active {
+.breadcrumb a:hover,
+.breadcrumb a:focus,
+.breadcrumb a:active {
 	text-decoration: underline;
 }
 
-.lineage-links > a {
+.breadcrumb > a {
 	display: none;
 }
-.lineage-links > a:after {
+.breadcrumb a:after {
 	content: '';
 	text-decoration: none;
 	

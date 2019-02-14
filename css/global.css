@@ -563,7 +563,7 @@ a.nav-mobile-link:focus {
 	Lineage 
 -------------------------------------------------------
 */ 
-.lineage {
+.breadcrumb {
 	display: none;
 }
 
@@ -1494,7 +1494,7 @@ div[class^="sec-"] .sec-industry-wels-login-inner {
 	margin-left: -1px;	
     box-shadow: none;
 }
-.secondary-nav ul.root {
+.secondary-nav ul.nav {
     border-bottom: 1px solid #c5c9cc;
 }
 .secondary-nav li a,
@@ -1556,17 +1556,14 @@ a.secondary-nav__section-title:hover:before {
 
 .secondary-nav li a:hover, 
 .secondary-nav li a:active, 
-.secondary-nav li a:focus,
-.secondary-nav .ms-core-listMenu-verticalBox li.static > .ms-core-listMenu-item:hover,
-.secondary-nav .ms-core-listMenu-verticalBox li.static > .ms-core-listMenu-item:focus  {
+.secondary-nav li a:focus  {
     background: #e3e3e3;   
     color: #333333;    
     border-left: 1px solid #e3e3e3;
 	border-right: 1px solid #e3e3e3;
 }
-.secondary-nav li.hover > a.dynamic-children.menu-item,
-.secondary-nav li.selected > a.selected,
-.secondary-nav .ms-core-listMenu-verticalBox li.static > .ms-core-listMenu-item.selected {
+.secondary-nav li.hover > a.has-sub,
+.secondary-nav li.selected > a.is-active {
     background: #007dae;
     color: #ffffff;
     border-left: 1px solid #007dae;
@@ -1584,38 +1581,35 @@ a.secondary-nav__section-title:hover:before {
 .secondary-nav li ul {
 	display: none;
 }
-.secondary-nav li.selected ul {
+.secondary-nav li.is-active ul {
 	display: block;
 	border-top: 1px solid #ffffff;
 }
-.secondary-nav li.selected li a {
+.secondary-nav li.is-active li a {
 	border: 0;	
 }
-.secondary-nav li.selected li a,
-.secondary-nav .ms-core-listMenu-verticalBox li.static > ul.static > li.static > .ms-core-listMenu-item {
+.secondary-nav li.is-active li a {
     background: #e2f3f5;
     color: #343434;
     padding: .6em .8em;
     padding-left: 1.3em;
 }
-.secondary-nav li.selected li.selected > a,
-.secondary-nav li.selected:hover li.selected > a {
+.secondary-nav li.is-active li.is-active > a,
+.secondary-nav li.is-active:hover li.is-active > a {
 
 }
 
-.secondary-nav li.selected li a:hover, 
-.secondary-nav li.selected li a:active, 
-.secondary-nav li.selected li a:focus,
-.secondary-nav .ms-core-listMenu-verticalBox li.static > ul.static > li.static > .ms-core-listMenu-item:hover,
-.secondary-nav .ms-core-listMenu-verticalBox li.static > ul.static > li.static > .ms-core-listMenu-item:focus {
+.secondary-nav li.is-active li a:hover, 
+.secondary-nav li.is-active li a:active, 
+.secondary-nav li.is-active li a:focus {
     background: #b5d5d9;
 	color: #000000;
 }
-.secondary-nav li.selected li:last-child {
+.secondary-nav li.is-active li:last-child {
     margin-bottom: -1px;
 } 
 
-.secondary-nav li.selected ul.dynamic a.menu-item {
+.secondary-nav li.is-active ul.dynamic a.menu-item {
     background: #b8d9ec;
     color: #343434;
     padding: .6em .8em;
@@ -1630,7 +1624,7 @@ a.secondary-nav__section-title:hover:before {
 }
 
 .secondary-nav .dynamic .menu-item.selected,
-.secondary-nav li.selected ul.dynamic a.menu-item.selected {
+.secondary-nav li.is-active ul.dynamic a.menu-item.selected {
     background: #A8D8CB;
 }
 
@@ -1791,6 +1785,23 @@ a.secondary-nav__section-title:hover:before {
 
 
 
+
+/*
+-------------------------------------------------------
+   Content Page Layout
+-------------------------------------------------------
+*/
+.content-layout .main-wrapper {
+    background: #ffffff;
+}
+.content-layout .main {
+	padding: 0 10px;
+	max-width: 1570px;
+}
+.content-layout #main-navigation .megamenu.open {
+    border-bottom: 8px solid #007dae;
+    box-shadow: 2px 5px 8px rgba(51, 51, 51,.5);
+}
 
 
 
@@ -2857,11 +2868,11 @@ footer {
 }
 .footer-col.site-info a {
 }
-
+*/
 .footer__water-label-img {
 	display: none;
 }
-*/
+
 
 
 /*

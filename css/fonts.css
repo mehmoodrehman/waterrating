@@ -7,9 +7,9 @@
  
 @font-face {
 	font-family: 'FontAwesome';
-	src: 	url('/Style%20Library/css/fonts/fontawesome-webfont.eot?v=4.7.0');
-	src: 	url('/Style%20Library/css/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'),
-			url('/Style%20Library/css/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype');
+	src: 	url('../fonts/fontawesome-webfont.eot?v=4.7.0');
+	src: 	url('../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'),
+			url('../fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype');
 
 	font-weight: normal;
 	font-style: normal;
@@ -25,9 +25,9 @@
 
 @font-face {
 	font-family: 'Calibri';
-	src: 	url('/Style%20Library/css/fonts/Calibri/Calibri.eot');
-	src: 	url('/Style%20Library/css/fonts/Calibri/Calibri.eot') format('embedded-opentype'),
-			url('/Style%20Library/css/fonts/Calibri/Calibri.ttf') format('truetype');
+	src: 	url('../fonts/Calibri/Calibri.eot');
+	src: 	url('../fonts/Calibri/Calibri.eot') format('embedded-opentype'),
+			url('../fonts/Calibri/Calibri.ttf') format('truetype');
 
 	font-weight: normal;
 	font-style: normal;
@@ -36,9 +36,9 @@
 
 @font-face {
 	font-family: 'Calibri Light';
-	src: 	url('/Style%20Library/css/fonts/Calibri/Calibri-Light.eot');
-	src: 	url('/Style%20Library/css/fonts/Calibri/Calibri-Light.eot') format('embedded-opentype'),
-			url('/Style%20Library/css/fonts/Calibri/Calibri-Light.ttf') format('truetype');
+	src: 	url('../fonts/Calibri/Calibri-Light.eot');
+	src: 	url('../fonts/Calibri/Calibri-Light.eot') format('embedded-opentype'),
+			url('../fonts/Calibri/Calibri-Light.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }

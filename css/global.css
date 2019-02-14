@@ -1498,8 +1498,7 @@ div[class^="sec-"] .sec-industry-wels-login-inner {
     border-bottom: 1px solid #c5c9cc;
 }
 .secondary-nav li a,
-.secondary-nav__section-title,
-.secondary-nav .ms-core-listMenu-verticalBox li.static > .ms-core-listMenu-item  {
+.secondary-nav__section-title  {
     display: block;
     padding: .7em .8em;
     padding-right: 20px;
@@ -1562,8 +1561,8 @@ a.secondary-nav__section-title:hover:before {
     border-left: 1px solid #e3e3e3;
 	border-right: 1px solid #e3e3e3;
 }
-.secondary-nav li.hover > a.has-sub,
-.secondary-nav li.selected > a.is-active {
+.secondary-nav li.hover > a,
+.secondary-nav li > a.is-active {
     background: #007dae;
     color: #ffffff;
     border-left: 1px solid #007dae;

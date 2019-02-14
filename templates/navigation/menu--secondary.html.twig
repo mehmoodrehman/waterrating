@@ -35,7 +35,7 @@
       <ul {{ attributes.addClass('level' ~ (menu_level + 1)) }}>
     {% endif %}
     {% for item in items %}
-    <span>{{ url('<current>') }} - {{ item.url }}</span>
+    <span>{{ path('<current>') }} - {{ item.url }}</span>
 
       <li{{ item.attributes }}>
         {{ link(item.title, item.url) }}

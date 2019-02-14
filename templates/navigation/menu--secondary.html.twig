@@ -35,8 +35,8 @@
       <ul {{ attributes.addClass('level' ~ (menu_level + 1)) }}>
     {% endif %}
     {% for item in items %}
-    
-{% if path('<current>') == item.url %}
+    {{ path('<current>') }} == {{ item.url }}
+{% if (path('<current>')) == (item.url) %}
 Same path     {{ path('<current>') }} == {{ item.url }}
     {% endif %}
 

@@ -1494,7 +1494,7 @@ div[class^="sec-"] .sec-industry-wels-login-inner {
 	margin-left: -1px;	
     box-shadow: none;
 }
-.secondary-nav ul.nav {
+.secondary-nav ul.level1 {
     border-bottom: 1px solid #c5c9cc;
 }
 .secondary-nav li a,

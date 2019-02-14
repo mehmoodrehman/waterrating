@@ -25,16 +25,17 @@
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
 {{ menus.menu_links(items, attributes, 0) }}
-
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul {{ attributes.addClass('level' ~ (menu_level + 1)) }}>
+      <ul class="level1">
     {% else %}
       <ul {{ attributes.addClass('level' ~ (menu_level + 1)) }}>
     {% endif %}
     {% for item in items %}
+    
+        <span>{{ url('<current>') }} - {{ item.url }}</span>
       <li{{ item.attributes }}>
         {{ link(item.title, item.url) }}
         {% if item.below %}

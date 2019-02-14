@@ -991,7 +991,6 @@ if(parentWindow) {
 	}
 }//ParentWindow
 
-WR.WasThisPageHelpFul();
 
 
 

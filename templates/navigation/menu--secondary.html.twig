@@ -29,28 +29,25 @@
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
-    {% if menu_level == 0 %}
-      <ul class="level1">
-    {% else %}
-      <ul {{ attributes.addClass('level' ~ (menu_level + 1)) }}>
-    {% endif %}
-    {% for item in items %}
+   
+    <ul {{ attributes.addClass('level' ~ (menu_level + 1)) }}>    
+      {% for item in items %}
 
-      {% set currentpath = path('<current>') %}
-      {% set itempath = item.url|render %}
+        {% set currentpath = path('<current>') %}
+        {% set itempath = item.url|render %}
 
-      {% if itempath == currentpath %}
-        <li {{ item.attributes.addClass('is-active') }}>
-      {% else %}
-        <li {{ item.attributes }}>
-      {% endif %}
-
-        {{ link(item.title, item.url) }}
-        {% if item.below %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% if itempath == currentpath %}
+          <li {{ item.attributes.addClass('is-active') }}>
+        {% else %}
+          <li {{ item.attributes }}>
         {% endif %}
-      </li>
-    {% endfor %}
+          <pre>{{item.below}}</pre>
+          {{ link(item.title, item.url) }}
+          {% if item.below %}
+            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+          {% endif %}
+        </li>
+      {% endfor %}
     </ul>
   {% endif %}
 {% endmacro %}

@@ -1562,7 +1562,7 @@ a.secondary-nav__section-title:hover:before {
 	border-right: 1px solid #e3e3e3;
 }
 .secondary-nav li.hover > a,
-.secondary-nav li > a.is-active {
+.secondary-nav li.is-active > a {
     background: #007dae;
     color: #ffffff;
     border-left: 1px solid #007dae;

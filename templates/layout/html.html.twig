@@ -5,7 +5,6 @@
     <title>{{ head_title|safe_join(' | ') }}</title>
     <css-placeholder token="{{ placeholder_token }}">
     <js-placeholder token="{{ placeholder_token }}">
-    <js-bottom-placeholder token="{{ placeholder_token }}">
     {%
       set layout_classes = [
         not root_path ? 'home-layout' : 'content-layout path-' ~ root_path|clean_class,
@@ -24,6 +23,7 @@
           {{ page_top }}
           {{ page }}
           {{ page_bottom }}
+        <js-bottom-placeholder token="{{ placeholder_token }}">
         </div>
       </div>
     </div>

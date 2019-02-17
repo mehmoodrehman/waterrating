@@ -13,6 +13,4 @@ global-styling:
     js/jquery-accessibleMegaMenu.js: {}
     js/global.js: {}
   dependencies:
-    - core/jquery
     - core/drupalSettings
-    - core/drupal

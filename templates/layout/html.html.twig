@@ -5,13 +5,13 @@
     <title>{{ head_title|safe_join(' | ') }}</title>
     <css-placeholder token="{{ placeholder_token }}">
     <js-placeholder token="{{ placeholder_token }}">
-  </head>
     {%
       set layout_classes = [
         not root_path ? 'home-layout' : 'content-layout path-' ~ root_path|clean_class,
       ]
     %}
 
+  </head>
   <body{{ attributes }}>
     {#
       Keyboard navigation/accessibility link to main content section in

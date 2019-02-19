@@ -37,8 +37,8 @@
     ("level" ~ (menu_level + 1))
   ]
 %}
- 
-      {% set menuhtml = "<ul" ~ attributes.addClass(levelclass) ~ ">" %} 
+      {% set menuhtml = [] %}
+      {% set menuhtml = menuhtml|merge(["<ul" ~ attributes.addClass(levelclass) ~ ">"]) %} 
       {% for item in items %}
 
         {% set currentpath = path('<current>') %}
@@ -63,13 +63,13 @@
             {% set hassub = '' %}
           {% endif %}
 
-          {% if itempath == currentpath %}
-            {% set menuhtml = menuhtml ~ "<li" ~ item.attributes.addClass('is-active') ~">" %} 
-          {% else %}  
-            {% set menuhtml = menuhtml ~ "<li" ~ item.attributes.addClass(hassub) ~ ">" %} 
+          {% if itempath == currentpath %}          
+            {% set menuhtml = menuhtml|merge(["<li" ~ item.attributes.addClass('is-active') ~">"]) %}
+          {% else %}   
+            {% set menuhtml = menuhtml|merge(["<li" ~ item.attributes.addClass(hassub) ~ ">"]) %}
           {% endif %}
 
-            {% set menuhtml = menuhtml ~ link(item.title, item.url) %} 
+            {% set menuhtml = menuhtml|merge([link(item.title, item.url)]) %}
 
         {% endif %}
 
@@ -77,11 +77,12 @@
             {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
           {% endif %}
 
-        {% set menuhtml = menuhtml ~ "</li>" %}         
+        {% set menuhtml = menuhtml|merge(["</li>"]) %}        
 
-      {% endfor %}    
-    {% set menuhtml = menuhtml ~ "</ul>" %} 
+      {% endfor %}     
+    {% set menuhtml = menuhtml|merge(["</ul>"]) %} 
   {% endif %}
+  
+{{ dump(menuhtml) }}
 {% endmacro %}
 
-{{ menuhtml|render }}

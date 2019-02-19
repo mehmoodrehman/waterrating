@@ -1486,16 +1486,17 @@ div[class^="sec-"] .sec-industry-wels-login-inner {
     padding: 0;
     margin: 0;
 }
-.secondary-nav ul.dynamic {
+
+.secondary-nav ul.top-level {
+    border-bottom: 1px solid #c5c9cc;
+}
+.secondary-nav ul.top-level > li.has-sub > ul {
     box-shadow: none;
 	border-bottom: 5px solid #153a52;
 	border-top: 1px solid #c5c9cb;
 	z-index: 2;
 	margin-left: -1px;	
     box-shadow: none;
-}
-.secondary-nav ul.level1 {
-    border-bottom: 1px solid #c5c9cc;
 }
 .secondary-nav li a,
 .secondary-nav__section-title  {
@@ -1567,6 +1568,7 @@ a.secondary-nav__section-title:hover:before {
     color: #ffffff;
     border-left: 1px solid #007dae;
     border-right: 1px solid #007dae;
+    position: relative;
 }
 
 
@@ -1608,7 +1610,7 @@ a.secondary-nav__section-title:hover:before {
     margin-bottom: -1px;
 } 
 
-.secondary-nav li.is-active ul.dynamic a.menu-item {
+.secondary-nav li.is-active li.has-sub > a {
     background: #b8d9ec;
     color: #343434;
     padding: .6em .8em;
@@ -1616,34 +1618,24 @@ a.secondary-nav__section-title:hover:before {
     border-left: 1px solid #b8d9ec;
     border-right: 1px solid #b8d9ec;
 }
-.secondary-nav .dynamic .menu-item:hover {
+.secondary-nav ul.top-level > li > ul > li a:hover {
 	background: #b5d5d9;
 	border-left: 1px solid #b5d5d9;
 	border-right: 1px solid #b5d5d9;
 }
 
-.secondary-nav .dynamic .menu-item.selected,
-.secondary-nav li.is-active ul.dynamic a.menu-item.selected {
+.secondary-nav li.is-active > ul a.is-active {
     background: #A8D8CB;
 }
 
 /* Secondary level */
 
-.secondary-nav li.selected:hover li ul.dynamic a {	
+.secondary-nav li.is-active:hover li ul.dynamic a {	
     background: #ffffff;
 }
 
 
 
-/* 
-    Hide secondary nav on load 
-*/
-.secondary-nav #DeltaPlaceHolderLeftNavBar {
-    display: none;
-}
-.secondary-nav #DeltaPlaceHolderLeftNavBar.active {
-    display: block;
-}
 
 /* 
     secondary nav mobile/table toggle link 
@@ -1709,40 +1701,14 @@ a.secondary-nav__section-title:hover:before {
     transform: rotate(180deg);
 }
 
-.secondary-nav .ms-core-listMenu-verticalBox .ms-listMenu-editLink {
-	margin: 0;
-	border: 0;
-}
-.secondary-nav .ms-core-listMenu-verticalBox .ms-navedit-editLinksText:hover {
-	background: #c1c1c1;
-}
 
-.secondary-nav a.ms-navedit-deletelink.ms-navedit-hidelink,
-.secondary-nav a.ms-navedit-deletelink {
-    box-sizing: content-box;
-    padding: 5px !important;
-}
 
-.secondary-nav li.selected > ul.dynamic,
-.secondary-nav li.selected.hover > ul.dynamic {
-    left: 0 !important;
-    position: relative;
-    top: 0 !important;
-    box-shadow: none;
-    border: 0;
-    width: 100% !important;
-    min-width: 100%;
-}
+
 
 /* Nav arrows */
-.secondary-nav  .ms-core-listMenu-verticalBox .dynamic-children.additional-background {
-	background: none !important;
-}
-.secondary-nav li.dynamic-children > a {	
-	position: relative;
-}
-.secondary-nav__links li.dynamic-children > a:after,
-.secondary-nav li.dynamic-children > a:after {
+
+.secondary-nav__links li.is-active > a:after,
+.secondary-nav li.has-sub > a:after {
     font-family: 'FontAwesome';
 	content: '\f105';
 	position: absolute;
@@ -1750,38 +1716,11 @@ a.secondary-nav__section-title:hover:before {
 	top: 50%;
 	margin-top: -10px;
 }
-.secondary-nav__links li.active.dynamic-children > a:after,
-.secondary-nav li.selected.dynamic-children > a:after {
+.secondary-nav__links li.active > a:after,
+.secondary-nav li.is-active > a:after {
     font-family: 'FontAwesome';
 	content: '\f107';
 }
-
-/* Edit secondary nvigation */
-.secondary-nav .ms-core-listMenu-verticalBox li.static > .ms-core-listMenuEdit,
-.secondary-nav .ms-core-listMenu-verticalBox li.static > .ms-navedit-titleBoxListItem {
-	margin-left :0;	
-}
-
-.secondary-nav .ms-core-listMenu-verticalBox li a {
-	border: 0;
-    box-sizing: content-box;
-}
-.secondary-nav .ms-core-listMenu-verticalBox .ms-core-listMenuEdit .ms-core-listMenu-item {
-    padding: 8px 5px;
-}
-.secondary-nav .ms-core-listMenu-verticalBox .ms-core-listMenuEdit li.selected ul.dynamic a.menu-item {
-    padding: 6px 5px;
-}
-
-.secondary-nav .ms-navedit-editLinksText {
-    background: #c5c9cc !important;
-    color: #000 !important;
-}
-.ms-navedit-editLinksText > span > .ms-metadata {
-	color: #000 !important;
-}
-
-
 
 
 

@@ -24,12 +24,12 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
-{{ menus.menu_links(items, attributes, 0) }}
+{{ menus.menu_links(items, attributes) }}
 
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
-    <ul {{ attributes.addClass('top-level') }}>    
+    <ul {{ attributes.addClass(menu_level + 1) }}>    
       {% for item in items %}
 
         {% set currentpath = path('<current>') %}
@@ -49,15 +49,15 @@
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
 
           {% if item.below %}
-		{% set hassub = 'has-sub' %}
-	  {% else %}
-		{% set hassub = '' %}
+            {% set hassub = 'has-sub' %}
+          {% else %}
+            {% set hassub = '' %}
           {% endif %}
 
           {% if itempath == currentpath %}
-            <li {{ item.attributes.addClass('is-active') }}>
+            <li {{ attributes.addClass('is-active') }}>
           {% else %}
-            <li {{ item.attributes.addClass(hassub) }}>
+            <li {{ attributes.addClass(hassub) }}>
           {% endif %}
 
           {{ link(item.title, item.url) }}
@@ -65,7 +65,7 @@
         {% endif %}
 
           {% if item.below %}
-            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            {{ menus.menu_links(item.below, attributes) }}
           {% endif %}
         </li>
 

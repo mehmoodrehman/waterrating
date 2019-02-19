@@ -37,7 +37,8 @@
     ("level" ~ (menu_level + 1))
   ]
 %}
-    <ul {{ attributes.addClass(levelclass) }}>    
+ 
+      {% set menuhtml = "<ul" ~ {{ attributes.addClass(levelclass) }} ~ ">" %} 
       {% for item in items %}
 
         {% set currentpath = path('<current>') %}
@@ -63,21 +64,24 @@
           {% endif %}
 
           {% if itempath == currentpath %}
-            <li {{ item.attributes.addClass('is-active') }}>
-          {% else %}
-            <li {{ item.attributes.addClass(hassub) }}>
+            {% set menuhtml = menuhtml ~ "<li" ~ {{ item.attributes.addClass('is-active') }} ~">" %} 
+          {% else %}  
+            {% set menuhtml = menuhtml ~ "<li" ~ {{ item.attributes.addClass(hassub) }} ~ ">" %} 
           {% endif %}
 
-          {{ link(item.title, item.url) }}
+            {% set menuhtml = menuhtml ~ {{ link(item.title, item.url) }} %} 
 
         {% endif %}
 
           {% if item.below %}
             {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
           {% endif %}
-        </li>
 
-      {% endfor %}
-    </ul>
+        {% set menuhtml = menuhtml ~ "</li>" %}         
+
+      {% endfor %}    
+    {% set menuhtml = menuhtml ~ "</ul>" %} 
   {% endif %}
 {% endmacro %}
+
+{{ menuhtml }}

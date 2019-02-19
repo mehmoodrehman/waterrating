@@ -29,35 +29,38 @@
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
-    <ul {{ attributes.addClass('level' ~ (menu_level + 1)) }}>    
+
+    <ul {{ attributes.addClass('top-level') }}>    
       {% for item in items %}
 
         {% set currentpath = path('<current>') %}
         {% set itempath = item.url|render %}
+        {% set pathlist = currentpath|split('/')%}
+        {% set currentlevel = (menu_level + 1) %}
+        {% set startlevel = (pathlist|length - 1)|render %}
+        {% set toplevelpath = ("/" ~ pathlist[1]|render ~ "/") %}
+        {#
+        {{toplevelpath}}
+        {{currentlevel}}
+        {{startlevel}}
+        {{item.url}}
+        {{pathlist|length}}
+        #}
 
-{% set pathlist = currentpath|split('/')%}
-{% set currentlevel = (menu_level + 1) %}
-{% set startlevel = (pathlist|length - 1)|render %}
-{% set toplevelpath = ("/" ~ pathlist[1]|render ~ "/") %}
-{#
-{{toplevelpath}}
-{{currentlevel}}
-{{startlevel}}
-{{item.url}}
-{{pathlist|length}}
-#}
-{% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
+        {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
 
-        {% if itempath == currentpath %}
-          <li {{ item.attributes.addClass('is-active') }}>
-        {% else %}
-          <li {{ item.attributes }}>
-        {% endif %}
+          {% if itempath == currentpath %}
+            <li {{ item.attributes.addClass('is-active') }}>
+          {% else %}
+            <li {{ item.attributes }}>
+          {% endif %}
+
           {{ link(item.title, item.url) }}
-{% endif %}
+
+        {% endif %}
 
           {% if item.below %}
-         {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
           {% endif %}
         </li>
 

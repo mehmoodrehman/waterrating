@@ -38,7 +38,7 @@
   ]
 %}
  
-      {% set menuhtml = "<ul" ~ {{ attributes.addClass(levelclass) }} ~ ">" %} 
+      {% set menuhtml = "<ul" ~ attributes.addClass(levelclass) ~ ">" %} 
       {% for item in items %}
 
         {% set currentpath = path('<current>') %}
@@ -64,12 +64,12 @@
           {% endif %}
 
           {% if itempath == currentpath %}
-            {% set menuhtml = menuhtml ~ "<li" ~ {{ item.attributes.addClass('is-active') }} ~">" %} 
+            {% set menuhtml = menuhtml ~ "<li" ~ item.attributes.addClass('is-active') ~">" %} 
           {% else %}  
-            {% set menuhtml = menuhtml ~ "<li" ~ {{ item.attributes.addClass(hassub) }} ~ ">" %} 
+            {% set menuhtml = menuhtml ~ "<li" ~ item.attributes.addClass(hassub) ~ ">" %} 
           {% endif %}
 
-            {% set menuhtml = menuhtml ~ {{ link(item.title, item.url) }} %} 
+            {% set menuhtml = menuhtml ~ link(item.title, item.url) %} 
 
         {% endif %}
 

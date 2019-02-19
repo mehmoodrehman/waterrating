@@ -55,9 +55,9 @@
           {% endif %}
 
           {% if itempath == currentpath %}
-            <li {{ attributes.addClass('is-active') }}>
+            <li {{ item.attributes.addClass('is-active') }}>
           {% else %}
-            <li {{ attributes.addClass(hassub) }}>
+            <li {{ item.attributes.addClass(hassub) }}>
           {% endif %}
 
           {{ link(item.title, item.url) }}

@@ -28,6 +28,8 @@
 {{ menus.menu_links(items, attributes, 0) }}
 {% endset %}
 
+{% set counter = 1 %}    
+
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
 
@@ -58,7 +60,7 @@
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
 
           {% if loop.first %}
-              {% set counter = ( counter | default(0) ) + 1 %}      
+              {% set counter = counter + 1 %}      
               {{counter}}  
             <ul{{ attributes.addClass("level" ~ (menu_level + 1)) }}>
           {% endif %}  

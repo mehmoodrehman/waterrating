@@ -33,8 +33,8 @@
 
 
   {% if items %}    
-      {% if attributes.hasClass("level" ~ print_level) %}
-        {{ attributes.removeClass("level" ~ print_level) }}
+      {% if attributes.hasClass("level" ~ (print_level - 1)) %}
+        {{ attributes.removeClass("level" ~ (print_level -1)) }}
       {% endif %}
 
         {% set currentpath = path('<current>') %}
@@ -74,25 +74,19 @@
             <li{{ item.attributes.addClass(hassub) }}> 
           {% endif %}
 
-            {{ link(item.title, item.url) }}     
+            {{ link(item.title, item.url) }} 
 
-        {% endif %}
-
-        {% if item.below %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1, print_level) }}
-        {% endif %}
-        </li>
-        
-               {% if loop.last %}    
-                </ul>
-              {% endif %}      
-
-      {% endfor %}   
-
+            {% if item.below %}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1, print_level) }}
+            {% endif %}
+            </li>
+          {% if loop.last %}    
+            </ul>
+          {% endif %} 
+        {% endif %} 
           
-    
+      {% endfor %}   
   {% endif %}
-
 {% endmacro %}
 
 {{navhtml}}

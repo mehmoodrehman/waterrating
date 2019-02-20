@@ -1606,7 +1606,7 @@ a.secondary-nav__section-title:hover:before {
     margin-bottom: -1px;
 } 
 
-.secondary-nav li.is-active li.has-sub > a {
+.secondary-nav li.is-active ul.level2 > li > a {
     background: #b8d9ec;
     color: #343434;
     padding: .6em .8em;
@@ -1614,10 +1614,11 @@ a.secondary-nav__section-title:hover:before {
     border-left: 1px solid #b8d9ec;
     border-right: 1px solid #b8d9ec;
 }
-.secondary-nav ul.level2 > li a:hover {
-	background: #b5d5d9;
-	border-left: 1px solid #b5d5d9;
-	border-right: 1px solid #b5d5d9;
+.secondary-nav li.is-active ul.level2 > li a:hover {
+	background: #e3e3e3;
+    color: #333333;
+    border-left: 1px solid #e3e3e3;
+    border-right: 1px solid #e3e3e3;
 }
 
 .secondary-nav li.is-active > ul a.is-active {

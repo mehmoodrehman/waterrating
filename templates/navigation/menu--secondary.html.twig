@@ -24,6 +24,7 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
+{% set menuhtml = "" %}
 
 {% set menuhtml = "" %} 
 {{ menus.menu_links(items, attributes, 0) }}
@@ -65,9 +66,9 @@
           {% endif %}
 
           {% if itempath == currentpath %}
-            {% set menuhtml = menuhtml ~ "<li" ~ item.attributes.addClass('is-active') ~">" %} 
+            {% set menuhtml = menuhtml ~ "<li" ~ item.attributes.addClass('is-active')|render ~">" %} 
           {% else %}  
-            {% set menuhtml = menuhtml ~ "<li" ~ item.attributes.addClass(hassub) ~ ">" %} 
+            {% set menuhtml = menuhtml ~ "<li" ~ item.attributes.addClass(hassub)|render ~ ">" %} 
           {% endif %}
 
             {% set menuhtml = menuhtml ~ link(item.title, item.url)|render %} 
@@ -83,5 +84,7 @@
       {% endfor %}    
     {#{% set menuhtml = menuhtml ~ "</ul>" %} #}
   {% endif %}
+{{ menuhtml|raw }}
+
 {% endmacro %}
 <ul class="level1">{{ menuhtml|raw }}</ul>

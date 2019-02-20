@@ -45,10 +45,6 @@
         
       {% for item in items %}
 
-
-
- 
-
         {% set itempath = item.url|render %}
         {% set currentlevel = (menu_level + 1) %}
         {#
@@ -58,12 +54,13 @@
         {{item.url}}
         {{pathlist|length}}
         #}
-        {{is_expanded}}
 
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
 
-          {% if loop.first %}            
-            <ul {{ attributes.addClass("level" ~ (menu_level + 1)) }} >
+          {% if loop.first %}
+              {% set counter = ( counter | default(0) ) + 1 %}      
+              {{counter}}  
+            <ul{{ attributes.addClass("level" ~ (menu_level + 1)) }}>
           {% endif %}  
 
           {% if item.below %}
@@ -73,13 +70,12 @@
           {% endif %}
 
           {% if itempath == currentpath %}
-            <li {{ item.attributes.addClass('is-active') }} >
+            <li{{ item.attributes.addClass('is-active') }}>
           {% else %}  
-            <li {{ item.attributes.addClass(hassub) }} > 
+            <li{{ item.attributes.addClass(hassub) }}> 
           {% endif %}
 
-            {{ link(item.title, item.url) }}
-     
+            {{ link(item.title, item.url) }}     
 
         {% endif %}
 

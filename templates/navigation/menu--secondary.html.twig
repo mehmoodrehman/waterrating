@@ -25,20 +25,21 @@
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
 
+{% set menuhtml = "" %} 
 {{ menus.menu_links(items, attributes, 0) }}
 
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
-  {% if items %}
-  
-    {% set levelclass = create_attribute() %}
-    {%
-  set levelclass = [
-    ("level" ~ (menu_level + 1))
-  ]
-%}
-      {% set menuhtml = [] %}
-      {% set menuhtml = menuhtml|merge(["<ul" ~ attributes.addClass(levelclass) ~ ">"]) %} 
+
+  {% if items %}    
+      {% set levelclass = create_attribute() %}
+      {%
+    set levelclass = [
+      ("level" ~ (menu_level + 1))
+    ]
+  %}
+ 
+      {#{% set menuhtml = menuhtml ~ "<ul" ~ (attributes.addClass(levelclass)|render) ~ ">" %} #}
       {% for item in items %}
 
         {% set currentpath = path('<current>') %}
@@ -63,13 +64,13 @@
             {% set hassub = '' %}
           {% endif %}
 
-          {% if itempath == currentpath %}          
-            {% set menuhtml = menuhtml|merge(["<li" ~ item.attributes.addClass('is-active') ~">"]) %}
-          {% else %}   
-            {% set menuhtml = menuhtml|merge(["<li" ~ item.attributes.addClass(hassub) ~ ">"]) %}
+          {% if itempath == currentpath %}
+            {% set menuhtml = menuhtml ~ "<li" ~ item.attributes.addClass('is-active') ~">" %} 
+          {% else %}  
+            {% set menuhtml = menuhtml ~ "<li" ~ item.attributes.addClass(hassub) ~ ">" %} 
           {% endif %}
 
-            {% set menuhtml = menuhtml|merge([link(item.title, item.url)]) %}
+            {% set menuhtml = menuhtml ~ link(item.title, item.url)|render %} 
 
         {% endif %}
 
@@ -77,12 +78,11 @@
             {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
           {% endif %}
 
-        {% set menuhtml = menuhtml|merge(["</li>"]) %}        
+        {% set menuhtml = menuhtml ~ "</li>" %}         
 
-      {% endfor %}     
-    {% set menuhtml = menuhtml|merge(["</ul>"]) %} 
+      {% endfor %}    
+    {#{% set menuhtml = menuhtml ~ "</ul>" %} #}
   {% endif %}
-  
-{{ dump(menuhtml) }}
 {% endmacro %}
 
+<ul class="level1">{{ menuhtml|raw }}</ul>

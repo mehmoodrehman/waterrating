@@ -26,20 +26,21 @@
 #}
 {% set menuhtml = "" %}
 
+{% set menuhtml = "" %} 
 {{ menus.menu_links(items, attributes, 0) }}
 
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
-  {% if items %}
-  
-    {% set levelclass = create_attribute() %}
-    {%
-  set levelclass = [
-    ("level" ~ (menu_level + 1))
-  ]
-%}
+
+  {% if items %}    
+      {% set levelclass = create_attribute() %}
+      {%
+    set levelclass = [
+      ("level" ~ (menu_level + 1))
+    ]
+  %}
  
-      {% set menuhtml = menuhtml ~ "<ul" ~ attributes.addClass(levelclass)|render ~ ">" %} 
+      {#{% set menuhtml = menuhtml ~ "<ul" ~ (attributes.addClass(levelclass)|render) ~ ">" %} #}
       {% for item in items %}
 
         {% set currentpath = path('<current>') %}
@@ -81,9 +82,10 @@
         {% set menuhtml = menuhtml ~ "</li>" %}         
 
       {% endfor %}    
-    {% set menuhtml = menuhtml ~ "</ul>" %} 
+    {#{% set menuhtml = menuhtml ~ "</ul>" %} #}
   {% endif %}
 {{ menuhtml|raw }}
 
 {% endmacro %}
 
+<ul class="level1">{{ menuhtml|raw }}</ul>

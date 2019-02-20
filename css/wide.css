@@ -845,3 +845,29 @@ div.sec-product-search-buy-efficient {
 
 }
 
+
+
+
+/*
+-------------------------------------------------------
+   Secondary Nav
+-------------------------------------------------------
+*/    
+.secondary-nav li.has-sub:hover > a {
+	background: #007dae;
+	color: #ffffff;
+    border-left: 1px solid #007dae;
+    border-right: 1px solid #007dae;
+}
+.secondary-nav li.has-sub:hover > ul.level2 {
+    left: 324px;
+    position: absolute;
+    display: block;
+    width: 300px;
+    top: 0;
+    border-left: 0;
+}
+
+.secondary-nav ul.level2 {
+
+}

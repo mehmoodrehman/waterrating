@@ -37,17 +37,22 @@
         {{ attributes.removeClass("level" ~ menu_level) }}
       {% endif %}
 
+        {% set currentpath = path('<current>') %}
+        {% set pathlist = currentpath|split('/')%}
+        {% set startlevel = (pathlist|length - 1)|render %}
+        {% set toplevelpath = ("/" ~ pathlist[1]|render ~ "/") %}
+
         {% if item.below  or (menu_level == 0)%}
           <ul {{ attributes.addClass("level" ~ (menu_level + 1)) }} >
         {% endif %}
       {% for item in items %}
 
-        {% set currentpath = path('<current>') %}
+
+
+ 
+
         {% set itempath = item.url|render %}
-        {% set pathlist = currentpath|split('/')%}
         {% set currentlevel = (menu_level + 1) %}
-        {% set startlevel = (pathlist|length - 1)|render %}
-        {% set toplevelpath = ("/" ~ pathlist[1]|render ~ "/") %}
         {#
         {{toplevelpath}}
         {{currentlevel}}
@@ -55,9 +60,12 @@
         {{item.url}}
         {{pathlist|length}}
         #}
+        {{is_expanded}}
 
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
-
+      {% if loop.first %}
+        first item
+      {% endif %}  
           {% if item.below %}
             {% set hassub = 'has-sub' %}
           {% else %}
@@ -71,13 +79,19 @@
           {% endif %}
 
             {{ link(item.title, item.url) }}
+     
 
         {% endif %}
 
         {% if item.below %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% endif %}
-        </li>        
+        </li>
+        
+               {% if loop.last %}    
+                Last item
+              {% endif %}      
+
       {% endfor %}   
 
         {% if item.below  or (menu_level == 0)%}

@@ -26,7 +26,6 @@
 #}
 {% set menuhtml = "" %}
 
-{% set menuhtml = "" %} 
 {{ menus.menu_links(items, attributes, 0) }}
 
 {% macro menu_links(items, attributes, menu_level) %}
@@ -84,7 +83,6 @@
       {% endfor %}    
     {#{% set menuhtml = menuhtml ~ "</ul>" %} #}
   {% endif %}
-{{ menuhtml|raw }}
 
 {% endmacro %}
 <ul class="level1">{{ menuhtml|raw }}</ul>

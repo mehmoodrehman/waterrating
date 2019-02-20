@@ -852,22 +852,39 @@ div.sec-product-search-buy-efficient {
 -------------------------------------------------------
    Secondary Nav
 -------------------------------------------------------
-*/    
-.secondary-nav li.has-sub:hover > a {
+*/  
+/* level 2 flyout */  
+.secondary-nav ul.level1 > li.has-sub:hover > a {
 	background: #007dae;
 	color: #ffffff;
     border-left: 1px solid #007dae;
     border-right: 1px solid #007dae;
 }
-.secondary-nav li.has-sub:hover > ul.level2 {
-    left: 324px;
+.secondary-nav ul.level1 > li.has-sub:hover > ul.level2,
+.secondary-nav ul.level2 > li.has-sub:hover > ul.level3 {
+    left: 323px;
     position: absolute;
     display: block;
     width: 300px;
     top: 0;
     border-left: 0;
+    z-index: 99;
 }
 
-.secondary-nav ul.level2 {
-
+/* level 3 flyout specific */  
+.secondary-nav ul.level2 li.has-sub:hover > a,
+.secondary-nav ul.level2 li.has-sub:focus > a {
+	background: #ffffff;
+	color: #ffffff;
+    border-left: 1px solid #007dae;
+    border-right: 1px solid #007dae;
+}
+.secondary-nav li.is-active ul.level3 {
+    border-bottom: 5px solid #153a52;
+    border-top: 1px solid #c5c9cb;
+    border-right: 1px solid #c5c9cb;
+    margin-left: -1px;
+}
+.secondary-nav li.is-active ul.level3 > li > a {
+	background: #ffffff;
 }

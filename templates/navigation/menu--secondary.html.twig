@@ -33,9 +33,9 @@
 
 
   {% if items %}    
-      {% if attributes.hasClass("level" ~ (print_level - 1)) %}
-        {# {{ attributes.removeClass("level" ~ (print_level -1)) }} #}
-      {% endif %}
+      {# {% if attributes.hasClass("level" ~ (print_level - 1)) %}#}
+        {{ attributes.removeAttribute("class")) }}
+      {# {% endif %} #}
 
         {% set currentpath = path('<current>') %}
         {% set pathlist = currentpath|split('/')%}

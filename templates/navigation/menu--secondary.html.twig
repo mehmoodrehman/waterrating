@@ -33,18 +33,13 @@
 
 
   {% if items %}    
-      {% set levelclass = create_attribute() %}
-      {%
-        set levelclass = [
-          ("level" ~ (menu_level + 1))
-        ]
-      %}
-
       {% if attributes.hasClass("level" ~ menu_level) %}
         {{ attributes.removeClass("level" ~ menu_level) }}
       {% endif %}
- 
-      <ul {{ attributes.addClass("level" ~ (menu_level + 1)) }} >
+
+        {% if item.below  or (menu_level == 0)%}
+          <ul {{ attributes.addClass("level" ~ (menu_level + 1)) }} >
+        {% endif %}
       {% for item in items %}
 
         {% set currentpath = path('<current>') %}
@@ -79,12 +74,16 @@
 
         {% endif %}
 
-          {% if item.below %}
-            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-          {% endif %}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% endif %}
         </li>        
-      {% endfor %}    
-    </ul>
+      {% endfor %}   
+
+        {% if item.below  or (menu_level == 0)%}
+          </ul>
+        {% endif %} 
+    
   {% endif %}
 
 {% endmacro %}

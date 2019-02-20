@@ -39,8 +39,12 @@
           ("level" ~ (menu_level + 1))
         ]
       %}
+
+      {% if attributes.hasClass("level" ~ menu_level) %}
+        {{ attributes.removeClass("level" ~ menu_level) }}
+      {% endif %}
  
-      <ul {{ attributes.addClass(levelclass) }} >
+      <ul {{ attributes.addClass("level" ~ (menu_level + 1)) }} >
       {% for item in items %}
 
         {% set currentpath = path('<current>') %}

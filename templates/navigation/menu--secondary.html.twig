@@ -24,10 +24,10 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
-
+{% set navhtml %}
 {{ menus.menu_links(items, attributes, 0) }}
+{% endset %}
 
-{% set menuhtml = "" %}
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
 
@@ -40,7 +40,7 @@
         ]
       %}
  
-      {% set menuhtml = menuhtml ~ "<ul" ~ (attributes.addClass(levelclass)|render) ~ ">test" %}
+      <ul attributes.addClass(levelclass)|render >
       {% for item in items %}
 
         {% set currentpath = path('<current>') %}
@@ -66,12 +66,12 @@
           {% endif %}
 
           {% if itempath == currentpath %}
-            {% set menuhtml = menuhtml ~ "<li" ~ item.attributes.addClass('is-active')|render ~">" %} 
+            <li item.attributes.addClass('is-active')|render >
           {% else %}  
-            {% set menuhtml = menuhtml ~ "<li" ~ item.attributes.addClass(hassub)|render ~ ">" %} 
+            <li item.attributes.addClass(hassub)|render > 
           {% endif %}
 
-            {% set menuhtml = menuhtml ~ link(item.title, item.url)|render %} 
+            link(item.title, item.url)|render
 
         {% endif %}
 
@@ -79,11 +79,11 @@
             {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
           {% endif %}
 
-        {% set menuhtml = menuhtml ~ "</li>" %}         
+        </li>        
 
       {% endfor %}    
-    {% set menuhtml = menuhtml ~ "testclose</ul>" %}
+    </ul>
   {% endif %}
-{{ menuhtml|raw }}
 
 {% endmacro %}
+{{navhtml}}

@@ -40,7 +40,7 @@
         ]
       %}
  
-      <ul {{ attributes.addClass(levelclass)|render }} >
+      <ul {{ attributes.addClass(levelclass) }} >
       {% for item in items %}
 
         {% set currentpath = path('<current>') %}
@@ -66,9 +66,9 @@
           {% endif %}
 
           {% if itempath == currentpath %}
-            <li {{ item.attributes.addClass('is-active')|render }} >
+            <li {{ item.attributes.addClass('is-active') }} >
           {% else %}  
-            <li {{ item.attributes.addClass(hassub)|render }} > 
+            <li {{ item.attributes.addClass(hassub) }} > 
           {% endif %}
 
             {{ link(item.title, item.url) }}

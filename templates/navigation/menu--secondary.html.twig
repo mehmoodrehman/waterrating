@@ -53,13 +53,13 @@
         {% set currentlevel = (menu_level + 1) %}
         {% set startlevel = (pathlist|length - 1)|render %}
         {% set toplevelpath = ("/" ~ pathlist[1]|render ~ "/") %}
-        
+        {#
         {{toplevelpath}}
         {{currentlevel}}
         {{startlevel}}
         {{item.url}}
         {{pathlist|length}}
-       
+        #}
 
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
 
@@ -82,9 +82,7 @@
           {% if item.below %}
             {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
           {% endif %}
-
         </li>        
-
       {% endfor %}    
     </ul>
   {% endif %}

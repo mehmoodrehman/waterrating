@@ -42,9 +42,7 @@
         {% set startlevel = (pathlist|length - 1)|render %}
         {% set toplevelpath = ("/" ~ pathlist[1]|render ~ "/") %}
 
-        {% if item.below  or (menu_level == 0)%}
-          <ul {{ attributes.addClass("level" ~ (menu_level + 1)) }} >
-        {% endif %}
+        
       {% for item in items %}
 
 
@@ -63,9 +61,11 @@
         {{is_expanded}}
 
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
-      {% if loop.first %}
-        first item
-      {% endif %}  
+
+          {% if loop.first %}            
+            <ul {{ attributes.addClass("level" ~ (menu_level + 1)) }} >
+          {% endif %}  
+
           {% if item.below %}
             {% set hassub = 'has-sub' %}
           {% else %}
@@ -89,14 +89,12 @@
         </li>
         
                {% if loop.last %}    
-                Last item
+                </ul>
               {% endif %}      
 
       {% endfor %}   
 
-        {% if item.below  or (menu_level == 0)%}
-          </ul>
-        {% endif %} 
+          
     
   {% endif %}
 

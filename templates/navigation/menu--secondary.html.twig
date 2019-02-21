@@ -57,7 +57,7 @@
 
 
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
-
+{{print_level}} {{startlevel}}
           {% if loop.first %}
             {% if startlevel > 1 %}
               {% set print_level = (print_level - startlevel) %}

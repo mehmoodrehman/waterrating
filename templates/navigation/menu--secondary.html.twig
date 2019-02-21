@@ -33,9 +33,11 @@
 
 
   {% if items %}    
-      {# {% if attributes.hasClass("level" ~ (print_level - 1)) %}#}
+      {# 
+      {% if attributes.hasClass("level" ~ (print_level - 1)) %}
         {{ attributes.removeAttribute("class")) }}
-      {# {% endif %} #}
+      {% endif %} 
+      #}
 
         {% set currentpath = path('<current>') %}
         {% set pathlist = currentpath|split('/')%}
@@ -58,7 +60,7 @@
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
 
           {% if loop.first %}
-            <ul{{ attributes.addClass("level" ~ print_level) }}>
+            <ul{{ attributes.removeClass("level" ~ print_level -1).addClass("level" ~ print_level) }}>
             {% set print_level = print_level + 1 %}   
           {% endif %}  
 

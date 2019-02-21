@@ -28,7 +28,6 @@
 {{ menus.menu_links(items, attributes, 0, 1) }}
 {% endset %}
 
-{% set counter = 1 %} 
 
 {% macro menu_links(items, attributes, menu_level, print_level) %}
   {% import _self as menus %}
@@ -80,7 +79,6 @@
 
             {{ link(item.title, item.url) }} 
 
-
         {% endif %} 
 
             {% if item.below %}
@@ -90,7 +88,7 @@
           {% if loop.last %}    
             </ul>
           {% endif %} 
-          
+
       {% endfor %}   
   {% endif %}
 {% endmacro %}

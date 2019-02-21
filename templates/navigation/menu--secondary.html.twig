@@ -54,7 +54,7 @@
             {% set hassub = '' %}
           {% endif %}
           {% if itempath == currentpath %}
-            <li{{ item.attributes.addClass('is-active',hassub) }}>
+            <li{{ item.attributes.addClass('is-active','active-' ~ hassub) }}>
           {% else %}
             <li{{ item.attributes.addClass(hassub) }}>
           {% endif %}

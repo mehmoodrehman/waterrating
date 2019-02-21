@@ -54,9 +54,9 @@
             {% set hassub = '' %}
           {% endif %}
           {% if itempath == currentpath %}
-            <li{{ item.attributes.addClass('is-active','active-' ~ hassub) }}>
+            <li{{ item.attributes.addClass('is-active','active-' ~ hassub, in_active_trail) }}>
           {% else %}
-            <li{{ item.attributes.addClass(hassub) }}>
+            <li{{ item.attributes.addClass(hassub, in_active_trail) }}>
           {% endif %}
             {{ link(item.title, item.url) }}
         {% endif %}

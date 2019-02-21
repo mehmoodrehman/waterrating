@@ -862,7 +862,7 @@ div.sec-product-search-buy-efficient {
 }
 .secondary-nav ul.level1 > li.has-sub:hover > ul.level2,
 .secondary-nav ul.level2 > li.has-sub:hover > ul.level3 {
-    left: 323px;
+    left: 324px;
     position: absolute;
     display: block;
     width: 300px;
@@ -870,14 +870,31 @@ div.sec-product-search-buy-efficient {
     border-left: 0;
     z-index: 99;
 }
-
-/* level 3 flyout specific */  
 .secondary-nav ul.level2 li.has-sub:hover > a,
 .secondary-nav ul.level2 li.has-sub:focus > a {
-	background: #ffffff;
+	background: #007dae;
 	color: #ffffff;
-    border-left: 1px solid #007dae;
-    border-right: 1px solid #007dae;
+	border-left: 1px solid #007dae;
+	border-right: 1px solid #007dae;
+}
+
+
+/* level 3 flyout specific */  
+
+.secondary-nav li.is-active ul.level2 > li.has-sub:hover > ul.level3 {
+    left: 324px;
+}
+.secondary-nav li ul.level2 > li.has-sub:hover > ul.level3 {
+    left: 300px;
+}
+
+.secondary-nav li ul.level2 > li.has-sub:hover > ul.level3 {
+    box-shadow: none;
+    border-bottom: 5px solid #153a52;
+    border-top: 1px solid #c5c9cb;
+    z-index: 2;
+    margin-left: -1px;
+    box-shadow: none;
 }
 .secondary-nav li.is-active ul.level3 {
     border-bottom: 5px solid #153a52;

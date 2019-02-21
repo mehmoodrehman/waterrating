@@ -59,7 +59,6 @@
 
           {% if loop.first %}
             <ul{{ attributes.addClass("level" ~ print_level) }}>
-            {% set print_level = print_level + 1 %}   
           {% endif %}  
 
           {% if item.below %}
@@ -79,7 +78,7 @@
         {% endif %}
 
         {% if item.below %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1, print_level) }}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1, print_level + 1) }}
         {% endif %}
         </li>
         

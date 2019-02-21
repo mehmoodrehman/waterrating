@@ -25,12 +25,12 @@
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
 {% set navhtml %}
-{{ menus.menu_links(items, attributes, 0) }}
+{{ menus.menu_links(items, attributes, 0, 1) }}
 {% endset %}
 
 {% set counter = 1 %} 
 
-{% macro menu_links(items, attributes, menu_level) %}
+{% macro menu_links(items, attributes, menu_level, print_level) %}
   {% import _self as menus %}
 
 
@@ -61,10 +61,9 @@
 
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
 
-          {% if loop.first %}
-          {% set counter = counter + 1 %}      
-              {{counter}}  
-            <ul{{ attributes.addClass("level" ~ (menu_level + 1)) }}>
+          {% if loop.first %}    
+              {{print_level}}  
+            <ul{{ attributes.addClass("level" ~ (print_level + 1)) }}>
           {% endif %}  
 
           {% if item.below %}
@@ -82,7 +81,7 @@
             {{ link(item.title, item.url) }} 
 
             {% if item.below %}
-              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1, print_level) }}
             {% endif %}
             </li>
           {% if loop.last %}    

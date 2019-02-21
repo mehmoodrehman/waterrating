@@ -1694,7 +1694,6 @@ a.secondary-nav__section-title:hover:before {
 
 /* Secondary nav arrows */
 
-.secondary-nav__links li.is-active > a:after,
 .secondary-nav li.has-sub > a:after {
     font-family: 'FontAwesome';
 	content: '\f105';
@@ -1702,11 +1701,6 @@ a.secondary-nav__section-title:hover:before {
 	right: 10px;
 	top: 50%;
 	margin-top: -10px;
-}
-.secondary-nav__links li.active > a:after,
-.secondary-nav li.is-active > a:after {
-    font-family: 'FontAwesome';
-	content: '\f107';
 }
 
 
@@ -2852,3 +2846,48 @@ footer {
 
 
 
+
+/*
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+	GOVCMS styles overrides 
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+*/
+
+#block-tabs ul.primary-tabs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+#block-tabs ul.primary-tabs li {
+    list-style: none;
+    float: left;
+    margin-right: 10px;
+}
+
+
+/* Page content call to action links */
+#block-tabs ul.primary-tabs a {
+    padding: 4px 10px;
+    color: #007dae;
+    text-decoration: none;
+    display: block;
+    clear: both;
+    float: left;
+    border: 2px solid #007dae;
+    transition: all ease 200ms;
+    position: relative;
+    background: #ffffff;
+    border-radius: 2px;
+    font-size: 20px;
+    font-size: 1.2rem;
+}
+#block-tabs ul.primary-tabs a:hover,
+#block-tabs ul.primary-tabs a:focus {
+    background: #007dae;
+    color: #ffffff;
+    box-shadow: 0 0 2px #c1c1c1;
+}

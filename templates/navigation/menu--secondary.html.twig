@@ -58,7 +58,7 @@
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
 
           {% if loop.first %}
-            <ul>
+            <ul class={{"type#{print_level}"}}>
           {% endif %}  
 
           {% if item.below %}

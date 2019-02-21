@@ -54,7 +54,7 @@
         {{item.url}}
         {{pathlist|length}}
         #}
-
+{{ startlevel }}
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
 
           {% if loop.first %}

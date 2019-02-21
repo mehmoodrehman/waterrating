@@ -394,8 +394,8 @@ var WR = {
 	    });
 	    
 	    //Secondary navigation back to parent link
-		if(jQuery('.secondary-nav__section-title').length && jQuery('.breadcrumb a:eq(-2)').length) {
-			jQuery('.secondary-nav__section-title').text(jQuery('.breadcrumb a:eq(-2)').text()).attr('href',jQuery('.breadcrumb a:eq(-2)').attr('href'));
+		if(jQuery('.secondary-nav__section-title').length && jQuery('.breadcrumb a:eq(-1)').length) {
+			jQuery('.secondary-nav__section-title').text(jQuery('.breadcrumb a:eq(-1)').text()).attr('href',jQuery('.breadcrumb a:eq(-1)').attr('href'));
 		}
 		
 		//Fix SP bug: Adding selected class to dynamicly expanded current link

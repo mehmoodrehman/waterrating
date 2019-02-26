@@ -24,6 +24,10 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
+
+
+{% set maximumleveltosprint = 2 %}
+
 {% set navhtml %}
 {{ menus.menu_links(items, attributes, 0, 0) }}
 {% endset %}
@@ -54,19 +58,19 @@
             {% set hassub = '' %}
           {% endif %}
           {% if itempath == currentpath %}
-            <li{{ item.attributes.addClass('is-active','active-' ~ hassub, in_active_trail) }}>
+            <li{{ item.attributes.addClass('is-active','active-' ~ hassub) }}>
           {% else %}
-            <li{{ item.attributes.addClass(hassub, in_active_trail) }}>
+            <li{{ item.attributes.addClass(hassub) }}>
           {% endif %}
             {{ link(item.title, item.url) }}
         {% endif %}
-        {% if item.below %}
+        {% if item.below and ((menu_level + 1) <= maximumleveltosprint) %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1, print_level) }}
         {% endif %}
         </li>
-               {% if loop.last %}
-                </ul>
-              {% endif %}
+        {% if loop.last %}
+        </ul>
+      {% endif %}
       {% endfor %} 
   {% endif %}
 {% endmacro %}

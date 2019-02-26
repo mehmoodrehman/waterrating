@@ -66,12 +66,10 @@
         {% endif %}
 
         {% if (menu_level + 1) <= maximumleveltosprint %}
-
-        {{(menu_level + 1)}} {{maximumleveltosprint }}
-{% endif %}
-
-        {% if item.below and ((menu_level + 1) <= maximumleveltosprint) %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1, print_level) }}
+          {{(menu_level + 1)}} {{maximumleveltosprint }}
+          {% if item.below %}
+            {{ menus.menu_links(item.below, attributes, menu_level + 1, print_level) }}
+          {% endif %}
         {% endif %}
         </li>
         {% if loop.last %}

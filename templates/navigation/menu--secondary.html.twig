@@ -65,7 +65,7 @@
             {{ link(item.title, item.url) }}
         {% endif %}
 
-        {% if item.below and ((menu_level + 1) <= maximumleveltosprint) %}
+        {% if item.below and ((menu_level + 1) < maximumleveltosprint) %}
           {{(menu_level + 1)}} {{maximumleveltosprint }}
         {% endif %}
 

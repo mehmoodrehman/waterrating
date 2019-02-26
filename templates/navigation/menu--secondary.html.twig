@@ -34,7 +34,7 @@
 {% macro menu_links(items, attributes, menu_level, print_level) %}
   {% import _self as menus %}
 
-  {% set maximumleveltosprint = 3 %}
+  {% set maximumleveltosprint = 2 %}
 
   {% if items %}    
       {% if attributes.hasClass("level" ~ menu_level) %}
@@ -52,7 +52,7 @@
             {% set print_level = print_level + 1 %}
             <ul class={{"level#{print_level}"}}>
           {% endif %}  
-          {% if item.below %}
+          {% if item.below and ((menu_level + 1) <= maximumleveltosprint) %}
             {% set hassub = 'has-sub' %}
           {% else %}
             {% set hassub = '' %}

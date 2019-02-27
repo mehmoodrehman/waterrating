@@ -31,14 +31,8 @@
 {{ menus.menu_links(items, attributes, 0, 0) }}
 {% endset %}
 
-{% set backtoparenturl = "" %}
-{% set backtoparentname = "" %}
-
 {% macro menu_links(items, attributes, menu_level, print_level) %}
   {% import _self as menus %}
-
-{{ backtoparenturl }}
-{{ backtoparentname }}
 
   {% set maximumleveltosprint = 2 %}
 
@@ -55,7 +49,6 @@
         {% set currentlevel = (menu_level + 1) %}
 
         {% if toplevelpath == item.url|render ~ "/" %}
-          <pre>{{toplevelpath}} {{item.url|render ~ "/"}}</pre>          
           {% set backtoparenturl = item.url|render %}
           {% set backtoparentname = item.title|render %}
         {% endif %}  

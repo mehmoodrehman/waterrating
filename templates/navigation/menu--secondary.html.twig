@@ -47,9 +47,9 @@
       {% for item in items %}
         {% set itempath = item.url|render %}
         {% set currentlevel = (menu_level + 1) %}
+        {% if (pathlist|length == 2) or {{toplevelpath}} {{item.url|render}} %}
+        
 <pre>{{toplevelpath}} {{item.url|render}}</pre>
-        {% if (pathlist|length == 2) or ((currentlevel == startlevel) and (toplevelpath in (item.url|render))) %}
-        current parent item
         {% endif %}  
 
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}

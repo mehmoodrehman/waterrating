@@ -857,18 +857,18 @@ div.sec-product-search-buy-efficient {
 .secondary-nav ul.level1 > li.has-sub:hover > a {
 	background: #007dae;
 	color: #ffffff;
-    border-left: 1px solid #007dae;
-    border-right: 1px solid #007dae;
+	border-left: 1px solid #007dae;
+	border-right: 1px solid #007dae;
+	display: inline-block;
 }
 .secondary-nav ul.level1 > li.has-sub:hover > ul.level2,
 .secondary-nav ul.level2 > li.has-sub:hover > ul.level3 {
-    left: 324px;
     position: absolute;
-    display: block;
     width: 300px;
-    top: 0;
     border-left: 0;
     z-index: 99;
+    display: inline-block;
+    margin-left: 3px;
 }
 .secondary-nav ul.level2 li.has-sub:hover > a,
 .secondary-nav ul.level2 li.has-sub:focus > a {

@@ -12,7 +12,7 @@ use Drupal\Core\Url;
 /**
  * Implements hook_preprocess_HOOK() for page templates.
  */
-function govcmsui_preprocess_page(&$variables) {
+function waterrating_preprocess_page(&$variables) {
   // Load the site name out of configuration.
   $config = \Drupal::config('system.site');
   $variables['site_name'] = $config->get('name');
@@ -27,19 +27,19 @@ function govcmsui_preprocess_page(&$variables) {
     $variables['sidebar_first_exists'] = TRUE;
   }
 
-  $coa_footer = theme_get_setting('govcmsui_coa_footer');
+  $coa_footer = theme_get_setting('waterrating_coa_footer');
   if (!empty($coa_footer) && $coa_footer == 1) {
     $variables['coa_bottom'] = '/' . drupal_get_path('theme',
-        'govcmsui') . '/img/coas-dark.svg';
+        'waterrating') . '/img/coas-dark.svg';
   }
 
-  $footer_copyright = theme_get_setting('govcmsui_footer_copyright');
+  $footer_copyright = theme_get_setting('waterrating_footer_copyright');
   if (!empty($footer_copyright)) {
     $variables['footer_copyright'] = $footer_copyright;
   }
 }
 
-function govcmsui_preprocess_block(&$variables) {
+function waterrating_preprocess_block(&$variables) {
   if (isset($variables['attributes']['id']) && !empty($variables['attributes']['id'])) {
     $variables['content']['#attributes']['block'] = $variables['attributes']['id'];
   }
@@ -52,34 +52,34 @@ function govcmsui_preprocess_block(&$variables) {
     }
   }
 
-  $coa = theme_get_setting('govcmsui_coa');
+  $coa = theme_get_setting('waterrating_coa');
   if (!empty($coa)) {
     $variables['govlogo'] = '/' . drupal_get_path('theme',
-        'govcmsui') . '/img/' . $coa;
+        'waterrating') . '/img/' . $coa;
   }
   if (!empty($variables['elements']['#id']) && $variables['base_plugin_id'] == 'views_exposed_filter_block') {
     $variables['attributes']['id'] = 'search';
   }
 }
 
-function govcmsui_preprocess_menu(&$variables) {
+function waterrating_preprocess_menu(&$variables) {
   if (isset($variables['attributes']['region'])) {
     $variables['content']['#attributes']['region'] = $variables['attributes']['region'];
   }
 }
 
-function govcmsui_preprocess_menu__main(&$variables) {
+function waterrating_preprocess_menu__main(&$variables) {
   if (isset($variables['attributes']['region'])) {
     $variables['content']['#attributes']['region'] = $variables['attributes']['region'];
   }
 
-  $nav_justified = theme_get_setting('govcmsui_navbar_justified');
+  $nav_justified = theme_get_setting('waterrating_navbar_justified');
   if (!empty($nav_justified) && $nav_justified == 1) {
     $variables['attributes']['class'][] = 'nav-justified';
   }
 }
 
-function govcmsui_preprocess_node(&$variables) {
+function waterrating_preprocess_node(&$variables) {
   if (isset($variables['view_mode'])) {
     $variables['attributes']['class'][] = 'view-mode-' . $variables['view_mode'];
   }
@@ -98,7 +98,7 @@ function govcmsui_preprocess_node(&$variables) {
   }
 }
 
-function govcmsui_preprocess_file_link(&$variables) {
+function waterrating_preprocess_file_link(&$variables) {
   $file = $variables['file'];
   $options = [];
 
@@ -120,7 +120,7 @@ function govcmsui_preprocess_file_link(&$variables) {
     $options['attributes']['title'] = $file_entity->getFilename();
   }
 
-  $icon_class = _govcmsui_file_icon_map($mime_type);
+  $icon_class = _waterrating_file_icon_map($mime_type);
 
   // Set file classes to the options array.
   $variables['attributes'] = new Attribute($variables['attributes']);
@@ -142,7 +142,7 @@ function govcmsui_preprocess_file_link(&$variables) {
   }
 }
 
-function _govcmsui_file_icon_map($mime_type) {
+function _waterrating_file_icon_map($mime_type) {
   // List of official MIME Types: http://www.iana.org/assignments/media-types/media-types.xhtml
   static $font_awesome_file_icon_classes = [
     // Images

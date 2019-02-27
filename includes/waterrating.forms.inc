@@ -3,7 +3,7 @@
 /**
  * Implements hook_form_alter().
  */
-function govcmsui_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id = NULL) {
+function waterrating_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id = NULL) {
     if($form_id == 'views_exposed_form' && $form['#id'] == 'views-exposed-form-search-page') {
         $variables['block_html_id'] = "search";
 

@@ -38,7 +38,7 @@ const browserSync = require('browser-sync').create();
 // URL to test locally.
 const localSiteURL = 'http://localhost:3000/';
 // Name of the icon font.
-const fontName = 'govcmsui-icons';
+const fontName = 'waterrating-icons';
 // Favicon related settings.
 const faviconColour = '#ffffff';
 const faviconBackgroundColour = '#384249';

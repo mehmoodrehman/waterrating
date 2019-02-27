@@ -1,6 +1,6 @@
 <?php
 
-include_once 'includes/govcmsui.preprocess.inc';
-include_once 'includes/govcmsui.admin.inc';
-include_once 'includes/govcmsui.alter.inc';
-include_once 'includes/govcmsui.forms.inc';
+include_once 'includes/waterrating.preprocess.inc';
+include_once 'includes/waterrating.admin.inc';
+include_once 'includes/waterrating.alter.inc';
+include_once 'includes/waterrating.forms.inc';

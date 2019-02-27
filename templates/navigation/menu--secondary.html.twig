@@ -47,7 +47,7 @@
       {% for item in items %}
         {% set itempath = item.url|render %}
         {% set currentlevel = (menu_level + 1) %}
-        {% if (pathlist|length == 2) or {{toplevelpath}} {{item.url|render}} %}
+        {% if (pathlist|length == 2) or (toplevelpath == item.url|render) %}
         
 <pre>{{toplevelpath}} {{item.url|render}}</pre>
         {% endif %}  

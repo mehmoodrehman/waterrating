@@ -52,7 +52,7 @@
             {% set print_level = print_level + 1 %}
             <ul class={{"level#{print_level}"}}>
           {% endif %}  
-          {% if item.below and ((menu_level + 1) < maximumleveltosprint) %}
+          {% if item.below and (print_level < maximumleveltosprint) %}
             {% set hassub = 'has-sub' %}
           {% else %}
             {% set hassub = '' %}
@@ -65,7 +65,7 @@
             {{ link(item.title, item.url) }}
         {% endif %}
 
-        {% if item.below and ((menu_level + 1) < maximumleveltosprint) %}          
+        {% if item.below and (print_level < maximumleveltosprint) %}          
           {{ menus.menu_links(item.below, attributes, menu_level + 1, print_level) }}
         {% endif %}
         </li>

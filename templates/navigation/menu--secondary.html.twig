@@ -54,7 +54,7 @@
           {% set backtoparentlink = "<a href='"~ backtoparenturl ~"'>"~ backtoparentname ~"</a>"%}
         {% endif %}  
 
-        {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and ((toplevelpath in (item.url|render)) or )) or (toplevelpath == "/system/") %}
+        {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
           {% if loop.first %}
             {% set print_level = print_level + 1 %}
             <ul class={{"level#{print_level}"}}>

@@ -48,12 +48,13 @@
         {% set itempath = item.url|render %}
         {% set currentlevel = (menu_level + 1) %}
 
-        {% if toplevelpath == item.url|render ~ "/" %}
-          {% set backtoparentlink = "<a href='"~ item.url|render ~"'>"~ item.title|render ~"</a>" %}
-          {{backtoparentlink}}
-        {% endif %}  
 
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
+        {% if (toplevelpath == item.url|render ~ "/") %}
+          {% set backtoparentlink = "<a href='"~ item.url|render ~"'>"~ item.title|render ~"</a>" %}   
+        {% endif %}  
+
+
           {% if loop.first %}
             {% set print_level = print_level + 1 %}
             <ul class={{"level#{print_level}"}}>

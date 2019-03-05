@@ -38,6 +38,11 @@ function waterrating_preprocess_page(&$variables) {
     $variables['footer_copyright'] = $footer_copyright;
   }
 
+ $node_id = FALSE; 
+  if ($entity_type == 'node') {
+    $node_id = $entity->nid;
+  }
+  
   $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
 $links = $menu_link_manager->loadLinksByRoute('entity.node.canonical', array('node' => $node_id));
 if ($link = reset($links)) {

@@ -52,6 +52,7 @@
           {% set backtoparenturl = item.url|render %}
           {% set backtoparentname = item.title|render %}
           {% set backtoparentlink = "<a href='"~ backtoparenturl ~"'>"~ backtoparentname ~"</a>"%}
+          {{backtoparentlink}}
         {% endif %}  
 
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
@@ -85,16 +86,4 @@
 
 {{navhtml}}
 
-{% if breadcrumb %}
-    <ol class="breadcrumb">
-        {% for item in breadcrumb %}
-            <li {{ item.attributes }}>
-                {% if item.url %}
-                    <a href="{{ item.url }}">{{ item.text }}</a>
-                {% else %}
-                    {{ item.text }}
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ol>
-{% endif %}
+{{ dump(_context) }}

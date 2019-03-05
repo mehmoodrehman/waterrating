@@ -860,6 +860,8 @@ div.sec-product-search-buy-efficient {
 	border-left: 1px solid #007dae;
 	border-right: 1px solid #007dae;
 	display: inline-block;
+	width: 100%;
+	margin-right: -4px;
 }
 .secondary-nav ul.level1 > li.has-sub:hover > ul.level2,
 .secondary-nav ul.level2 > li.has-sub:hover > ul.level3 {
@@ -869,6 +871,7 @@ div.sec-product-search-buy-efficient {
     z-index: 99;
     display: inline-block;
     margin-left: 3px;
+    left: auto;
 }
 .secondary-nav ul.level2 li.has-sub:hover > a,
 .secondary-nav ul.level2 li.has-sub:focus > a {
@@ -876,6 +879,9 @@ div.sec-product-search-buy-efficient {
 	color: #ffffff;
 	border-left: 1px solid #007dae;
 	border-right: 1px solid #007dae;
+	display: inline-block;
+	width: 100%;
+	margin-right: -4px;
 }
 
 

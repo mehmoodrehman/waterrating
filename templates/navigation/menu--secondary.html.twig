@@ -49,9 +49,7 @@
         {% set currentlevel = (menu_level + 1) %}
 
         {% if toplevelpath == item.url|render ~ "/" %}
-          {% set backtoparenturl = item.url|render %}
-          {% set backtoparentname = item.title|render %}
-          {% set backtoparentlink = "<a href='"~ backtoparenturl ~"'>"~ backtoparentname ~"</a>"%}
+          {% set backtoparentlink = "<a href='"~ item.url|render ~"'>"~ item.title|render ~"</a>" %}
           {{backtoparentlink}}
         {% endif %}  
 

@@ -870,7 +870,7 @@ div.sec-product-search-buy-efficient {
     border-left: 0;
     z-index: 99;
     display: inline-block;
-    margin-left: 3px;
+    margin-left: 0;
     left: auto;
 }
 .secondary-nav ul.level2 li.has-sub:hover > a,

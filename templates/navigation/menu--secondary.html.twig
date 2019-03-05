@@ -28,13 +28,13 @@
 
 
 {% set navhtml %}
-{{ menus.menu_links(items, attributes, 0, 0) }}
+{{ menus.menu_links(items, attributes, 0, 0, "") }}
 {% endset %}
 
-{% macro menu_links(items, attributes, menu_level, print_level) %}
+{% macro menu_links(items, attributes, menu_level, print_level, backtoparentlink) %}
   {% import _self as menus %}
 
-  {% set maximumleveltosprint = 2 %}
+  {% set maximumleveltosprint = 3 %}
 
   {% if items %}    
       {% if attributes.hasClass("level" ~ menu_level) %}
@@ -51,6 +51,7 @@
         {% if toplevelpath == item.url|render ~ "/" %}
           {% set backtoparenturl = item.url|render %}
           {% set backtoparentname = item.title|render %}
+          {% set backtoparentlink = "<a href='"~ backtoparenturl ~"'>"~ backtoparentname ~"</a>"%}
         {% endif %}  
 
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
@@ -72,7 +73,7 @@
         {% endif %}
 
         {% if item.below and (print_level < maximumleveltosprint) %}          
-          {{ menus.menu_links(item.below, attributes, menu_level + 1, print_level) }}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1, print_level, backtoparentlink) }}
         {% endif %}
         </li>
         {% if loop.last %}

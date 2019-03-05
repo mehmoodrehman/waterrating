@@ -37,6 +37,18 @@ function waterrating_preprocess_page(&$variables) {
   if (!empty($footer_copyright)) {
     $variables['footer_copyright'] = $footer_copyright;
   }
+
+  $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+$links = $menu_link_manager->loadLinksByRoute('entity.node.canonical', array('node' => $node_id));
+if ($link = reset($links)) {
+  if ($parent = $link->getParent()) {
+    $parent = $menu_link_manager->createInstance($parent);
+    $parent_title = $parent->getTitle();
+    $parent_url = $parent->getUrlObject()->toString();
+  }
+}
+
+
 }
 
 function waterrating_preprocess_block(&$variables) {
@@ -96,18 +108,6 @@ function waterrating_preprocess_node(&$variables) {
     $variables['date_updated_timestamp'] = date("Y-m-d\TH:i:s", $updated);
     $variables['date_updated_readable'] = date("j F Y g:i A", $updated);
   }
-
-$menu_link_manager = \Drupal::service('plugin.manager.menu.link');
-$links = $menu_link_manager->loadLinksByRoute('entity.node.canonical', array('node' => $node_id));
-if ($link = reset($links)) {
-  if ($parent = $link->getParent()) {
-    $parent = $menu_link_manager->createInstance($parent);
-    $parent_title = $parent->getTitle();
-    $parent_url = $parent->getUrlObject()->toString();
-  }
-}
-
-
 
 }
 

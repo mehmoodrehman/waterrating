@@ -37,13 +37,7 @@ function waterrating_preprocess_page(&$variables) {
   if (!empty($footer_copyright)) {
     $variables['footer_copyright'] = $footer_copyright;
   }
-  
-$link = $this->menuActiveTrail->getActiveLink();
 
-if(!empty($link->getParent())) {
-  $parent_link = Drupal::service('plugin.manager.menu.link')->createInstance($link->getParent());
-  $menu_item = MenuLinkContent::load($parent_link->getMetaData()['entity_id']);
-}
 
 }
 

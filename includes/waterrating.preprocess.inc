@@ -37,22 +37,13 @@ function waterrating_preprocess_page(&$variables) {
   if (!empty($footer_copyright)) {
     $variables['footer_copyright'] = $footer_copyright;
   }
-
- $node_id = FALSE; 
-  if ($entity_type == 'node') {
-    $node_id = $entity->nid;
-  }
   
-  $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
-$links = $menu_link_manager->loadLinksByRoute('entity.node.canonical', array('node' => $node_id));
-if ($link = reset($links)) {
-  if ($parent = $link->getParent()) {
-    $parent = $menu_link_manager->createInstance($parent);
-    $parent_title = $parent->getTitle();
-    $parent_url = $parent->getUrlObject()->toString();
-  }
-}
+$link = $this->menuActiveTrail->getActiveLink();
 
+if(!empty($link->getParent())) {
+  $parent_link = Drupal::service('plugin.manager.menu.link')->createInstance($link->getParent());
+  $menu_item = MenuLinkContent::load($parent_link->getMetaData()['entity_id']);
+}
 
 }
 

@@ -452,7 +452,7 @@ div.sec-product-search-buy-efficient {
     display: block;
 }
 
-.secondary-nav #DeltaPlaceHolderLeftNavBar {
+.secondary-nav ul.level1 {
     display: block !important;
 }
 .secondary-nav_toggle {

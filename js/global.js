@@ -136,7 +136,7 @@ var WR = {
 	    //Secondary navigation clickable
 	    jQuery(".secondary-nav_toggle").on('click tap', function (e) {
 	        e.preventDefault();
-	        jQuery('.secondary-nav ul.level1').toggleClass('active');
+	        jQuery('.secondary-nav__links').toggleClass('active');
 	        jQuery(this).toggleClass('active');
 	    });
 	
@@ -392,7 +392,7 @@ var WR = {
 		//expand collapse toggle
 	    jQuery(".secondary-nav_toggle").on('click tap', function (e) {
 	        e.preventDefault();
-	        jQuery('.secondary-nav__links').slideToggle().toggleClass('active');
+	        jQuery('.secondary-nav ul.level1').slideToggle().toggleClass('active');
 	        jQuery(".secondary-nav_toggle").toggleClass('active');
 	    });	    	
 	},

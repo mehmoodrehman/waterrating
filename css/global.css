@@ -1629,6 +1629,10 @@ a.secondary-nav__section-title:hover:before {
 
 
 /* secondary nav mobile/table toggle link */
+.secondary-nav ul.level1 {
+    display: none;
+}
+
 .secondary-nav_toggle,
 .secondary-nav_toggle:visited {
 	display: block;

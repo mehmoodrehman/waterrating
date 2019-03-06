@@ -386,30 +386,15 @@ var WR = {
 	
 	//Secondary Naviation mobile controls
 	SecondaryNavigationMobile: function(){
+		var leftMenuExpandCollapseLink = '<a href="javascript:void(0)" class="secondary-nav_toggle"><span class="visually-hidden">Expand links</span>In this section </a>';
+		jQuery('.secondary-nav__section-title').after(leftMenuExpandCollapseLink);
+
 		//expand collapse toggle
 	    jQuery(".secondary-nav_toggle").on('click tap', function (e) {
 	        e.preventDefault();
-	        jQuery('#DeltaPlaceHolderLeftNavBar').slideToggle().toggleClass('active');
+	        jQuery('.secondary-nav__links').slideToggle().toggleClass('active');
 	        jQuery(".secondary-nav_toggle").toggleClass('active');
-	    });
-	    
-	    //Secondary navigation back to parent link
-		if(jQuery('.secondary-nav__section-title').length && jQuery('.breadcrumb a:eq(-1)').length) {
-			jQuery('.secondary-nav__section-title').text(jQuery('.breadcrumb a:eq(-1)').text()).attr('href',jQuery('.breadcrumb a:eq(-1)').attr('href'));
-		}
-		
-		//Fix SP bug: Adding selected class to dynamicly expanded current link
-		jQuery('.secondary-nav-links a.dynamic').each(function(){
-			if(jQuery(this).attr('href') === window.location.pathname) {
-				jQuery(this).addClass('selected');
-				return false;
-			}
-		});
-	
-		//Remove title attribute	
-		jQuery('.secondary-nav a[title]').each(function(){
-			jQuery(this).attr('title','');
-		});	
+	    });	    	
 	},
 	
 	

@@ -49,15 +49,15 @@
         {% set currentlevel = (menu_level + 1) %}
         {% set parentpathlist = pathlist|slice(0,-1)|join("/") %}
 
-        {% if menu_level == 0 and loop.first and pathlist|length == 2 %}       
-          <a href="/" class="secondary-nav__section-title">Water Rating</a>          
-          <a href="javascript:void(0)" class="secondary-nav_toggle"><span class="visually-hidden">Expand links</span>In this section </a>
-        {% endif %}
+
 
         {% if parentpathlist == item.url|render %}
           <a href="{{item.url|render}}" class="secondary-nav__section-title"> {{item.title|render}}</a>
           <a href="javascript:void(0)" class="secondary-nav_toggle"><span class="visually-hidden">Expand links</span>In this section </a>
-         {% endif %}
+        {% elseif (menu_level == 0) and loop.first and (pathlist|length == 2) %}       
+          <a href="/" class="secondary-nav__section-title">Water Rating</a>          
+          <a href="javascript:void(0)" class="secondary-nav_toggle"><span class="visually-hidden">Expand links</span>In this section </a>
+        {% endif %}
 
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
 

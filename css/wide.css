@@ -870,7 +870,7 @@ div.sec-product-search-buy-efficient {
     border-left: 0;
     z-index: 99;
     display: inline-block;
-    margin-left: 0;
+    /* margin-left: 0; */
     left: auto;
 }
 .secondary-nav ul.level2 li.has-sub:hover > a,
@@ -888,10 +888,10 @@ div.sec-product-search-buy-efficient {
 /* level 3 flyout specific */  
 
 .secondary-nav li.is-active ul.level2 > li.has-sub:hover > ul.level3 {
-    left: 324px;
+    left: auto;
 }
 .secondary-nav li ul.level2 > li.has-sub:hover > ul.level3 {
-    left: 300px;
+    left: auto;
 }
 
 .secondary-nav li ul.level2 > li.has-sub:hover > ul.level3 {

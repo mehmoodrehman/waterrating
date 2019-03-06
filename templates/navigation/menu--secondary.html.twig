@@ -49,7 +49,7 @@
         {% set currentlevel = (menu_level + 1) %}
         {% set parentpathlist = pathlist|slice(0,-1)|join("/") %}
 
-        {% if menu_level == 1 %}       
+        {% if menu_level == 0 and loop.first %}       
           <a href="/" class="secondary-nav__section-title">Water Rating</a>          
           <a href="javascript:void(0)" class="secondary-nav_toggle"><span class="visually-hidden">Expand links</span>In this section </a>
         {% endif %}

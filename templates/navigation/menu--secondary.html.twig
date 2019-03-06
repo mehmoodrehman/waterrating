@@ -52,7 +52,7 @@
         {% if parentpathlist == item.url|render %}
           <a href="{{item.url|render}}" class="secondary-nav__section-title"> {{item.title|render}}</a>
           <a href="javascript:void(0)" class="secondary-nav_toggle"><span class="visually-hidden">Expand links</span>In this section </a>
-        {% elseif menu_level == 0 and loop.first %}       
+        {% elseif menu_level == 0 and print_level == 0 %}       
           <a href="/" class="secondary-nav__section-title">Water Rating</a>          
           <a href="javascript:void(0)" class="secondary-nav_toggle"><span class="visually-hidden">Expand links</span>In this section </a>
         {% endif %}

@@ -136,7 +136,7 @@ var WR = {
 	    //Secondary navigation clickable
 	    jQuery(".secondary-nav_toggle").on('click tap', function (e) {
 	        e.preventDefault();
-	        jQuery('.secondary-nav__links').toggleClass('active');
+	        jQuery('.secondary-nav ul.level1').toggleClass('active');
 	        jQuery(this).toggleClass('active');
 	    });
 	
@@ -994,7 +994,6 @@ if(parentWindow) {
 		WR.AddImageCaption();
 		WR.MoveHtmlOnScreenResChange();
 		WR.MegaMenu();
-		WR.SecondaryNavigationMobile();
 		WR.HomeStatsAnimations();
 		WR.FormatLastReviewedDate();
 		WR.GlobalSearchForm();
@@ -1010,6 +1009,15 @@ if(parentWindow) {
 		}
 	}//ParentWindow
 }(jQuery));
+
+/*
+===================================================================================================
+	Execute on Document ready
+===================================================================================================
+*/
+jQuery(document).ready(function() {
+	WR.SecondaryNavigationMobile();
+});
 
 
 

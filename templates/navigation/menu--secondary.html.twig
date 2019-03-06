@@ -61,7 +61,7 @@
 
           {% if loop.first %}
             {% set print_level = print_level + 1 %}
-            <ul class={{"secondary-nav__links level#{print_level}"}}>
+            <ul class={{"level#{print_level}"}}>
           {% endif %}  
           {% if item.below and (print_level < maximumleveltosprint) %}
             {% set hassub = 'has-sub' %}

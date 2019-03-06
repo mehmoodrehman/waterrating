@@ -53,7 +53,7 @@
 
         {% if (parentpathlist == item.url|render ) and print_level == 0 %}
           <a href="{{item.url|render}}" class="secondary-nav__section-title"> {{item.title|render}}</a>
-        {% elseif (menu_level == 0) and loop.first and (print_level == 0) %}       
+        {% elseif (menu_level == 0) and loop.first and (pathlist|length == 2) %}       
           <a href="/" class="secondary-nav__section-title">Water Rating</a>
         {% endif %}
 

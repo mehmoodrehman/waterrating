@@ -50,7 +50,7 @@
         {% set parentpathlist = pathlist|slice(0,-1)|join("/") %}
 
         {% if parentpathlist == item.url|render %}
-          <a href="{item.url|render}"> {{item.title|render}}</a>
+          <a {{ attributes.href(item.url|render) }}> {{item.title|render}}</a>
         {% endif %}  
 
 

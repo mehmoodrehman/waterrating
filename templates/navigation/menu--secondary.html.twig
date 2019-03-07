@@ -50,7 +50,7 @@
         {% set parentpathlist = pathlist|slice(0,-1)|join("/") %}
 
 
-
+{{site_name}}
         {% if (parentpathlist == item.url|render ) and print_level == 0 %}
           <a href="{{item.url|render}}" class="secondary-nav__section-title"> {{item.title|render}}</a>
         {% elseif (menu_level == 0) and loop.first and (pathlist|length == 2) %}       

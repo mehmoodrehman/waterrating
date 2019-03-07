@@ -70,6 +70,12 @@ function waterrating_preprocess_menu(&$variables) {
   }
 }
 
+function waterrating_preprocess_menu__secondary(&$variables) {
+  $config = \Drupal::config('system.site');
+  $variables['site_name'] = $config->get('name');
+}
+
+
 function waterrating_preprocess_menu__main(&$variables) {
   if (isset($variables['attributes']['region'])) {
     $variables['content']['#attributes']['region'] = $variables['attributes']['region'];

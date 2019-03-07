@@ -28,17 +28,17 @@
 
 
 {% set navhtml %}
-{{ menus.menu_links(items, attributes, 0, 0, "") }}
+{{ menus.menu_links(items, attributes, 0, 0, site_name) }}
 {% endset %}
 
-{% macro menu_links(items, attributes, menu_level, print_level) %}
+{% macro menu_links(items, attributes, menu_level, print_level, site_name) %}
   {% import _self as menus %}
 
   {% set maximumleveltosprint = 3 %}
 
   {% if items %}    
       {% if attributes.hasClass("level" ~ menu_level) %}
-        {{ attributes.removeClass("level" ~ menu_level) }}
+        {{ attributes.removeClass("level" ~ menu_level) }}, 
       {% endif %}
         {% set currentpath = path('<current>') %}
         {% set pathlist = currentpath|split('/')%}
@@ -50,11 +50,10 @@
         {% set parentpathlist = pathlist|slice(0,-1)|join("/") %}
 
 
-{{site_name}}
         {% if (parentpathlist == item.url|render ) and print_level == 0 %}
           <a href="{{item.url|render}}" class="secondary-nav__section-title"> {{item.title|render}}</a>
         {% elseif (menu_level == 0) and loop.first and (pathlist|length == 2) %}       
-          <a href="/" class="secondary-nav__section-title">Water Rating</a>
+          <a href="/" class="secondary-nav__section-title">{{site_name}}</a>
         {% endif %}
 
         {% if (pathlist|length == 2) or ((currentlevel >= startlevel) and (toplevelpath in (item.url|render))) or (toplevelpath == "/system/") %}
@@ -77,7 +76,7 @@
         {% endif %}
 
         {% if item.below and (print_level < maximumleveltosprint) %}          
-          {{ menus.menu_links(item.below, attributes, menu_level + 1, print_level) }}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1, print_level, site_name) }}
         {% endif %}
         </li>
         {% if loop.last %}
